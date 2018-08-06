@@ -8,7 +8,7 @@ $ chmod +x install.sh && ./install.sh
 
 ### Configuration files
 
-* Vim
-* Git
+* [Vim](/vim)
+* [Git](/git)
 
 
