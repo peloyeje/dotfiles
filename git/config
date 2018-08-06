@@ -1,0 +1,35 @@
+[alias]
+    cm = commit -m
+    a = add -p
+    st = status -sb
+    ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    co = checkout
+    cl = clean -fdx
+    amend = commit --amend --no-edit
+    fixup = commit --fixup
+    reold ="!git rebase -i --autostash --autosquash origin/$(git rev-parse --abbrev-ref HEAD); git rebase --committer-date-is-author-date --autostash origin/$(git rev-parse --abbrev-ref HEAD)"
+    cleanup = "!git branch -vv | grep ': gone]' | tr -s ' ' | cut -d' ' -f 2 | xargs git branch -D"
+    re = rebase -i --autostash --autosquash
+    p = pull --rebase --autostash
+    f = fetch -pt
+    oldest-ancestor = !zsh -c 'diff -u <(git rev-list --first-parent \"${1:-master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | sed -ne \"s/^ //p\" | head -1' -
+    br-clean = "!git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
+[core]
+    autocrlf = input
+[push]
+    default = current
+[merge]
+    conflictstyle = diff3
+    renamelimit = 25000
+[color]
+    diff = true
+    status = auto
+    branch = auto
+    interactive = true
+    ui = true
+    pager = true
+[rerere]
+    enabled = true
+[user]
+	name = Jean-Eudes Peloye
+	email = jean-eudes.peloye@manomano.com
