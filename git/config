@@ -3,6 +3,7 @@
     a = add -p
     st = status -sb
     ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    ds = diff --staged
     co = checkout
     cl = clean -fdx
     amend = commit --amend --no-edit
