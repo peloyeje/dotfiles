@@ -7,7 +7,7 @@ CURRENT_DIR=$(dirname "$(readlink -f "$0")")
 
 set -e
 
-echo "Set up tmux configuration into "$CONFIG_DIR" ..."
+echo "Set up tmux configuration into "$CONFIG_FILE" ..."
 if [ -f "$CONFIG_FILE" ] || [ -L "$CONFIG_FILE" ]; then
     rm "$CONFIG_FILE"
 fi
