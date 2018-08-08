@@ -10,5 +10,5 @@ $ chmod +x install.sh && ./install.sh
 
 * [Vim](/vim)
 * [Git](/git)
-
+* [Tmux](/tmux)
 
