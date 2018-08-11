@@ -1,16 +1,36 @@
 #!/usr/bin/env bash
 
-# Sets up git configuration into the user's home directory
+###
+# PROGRAM configuration install script
+###
 
-CONFIG_FILE="$HOME"/.gitconfig
-CURRENT_DIR=$(dirname "$(readlink -f "$0")")
-
+# Exit immediately if a command exits with a non-zero status
 set -e
 
-echo "Set up git configuration into "$CONFIG_FILE" ..."
-if [ -f "$CONFIG_FILE" ] || [ -L "$CONFIG_FILE" ]; then
-    rm "$CONFIG_FILE"
+# Base variables
+SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )
+DEST_DIR=$HOME
+CONFIG_FILES=( "gitconfig" )
+
+# Creates the destination folder if it doesn't exists
+if [ ! -e "$SOURCE_DIR" ]; then
+    mkdir -p "$SOURCE_DIR"
 fi
-ln -s "$CURRENT_DIR"/gitconfig "$CONFIG_FILE"
-echo "Done."
+
+# Symlink files in CONFIG_FILES array into the DEST_DIR
+for file in ${CONFIG_FILES[@]}
+do
+    SOURCE_PATH="$SOURCE_DIR/$file"
+    if [ -f "$SOURCE_PATH" ]; then
+        file=".$file"
+    fi
+    DEST_PATH="$DEST_DIR/$file"
+
+    echo "Symlinking $SOURCE_PATH to $DEST_PATH ..."
+    if [ -f "$DEST_PATH" ] || [ -L "$DEST_PATH" ]; then
+         rm "$DEST_PATH"
+    fi
+    ln -s "$SOURCE_PATH" "$DEST_PATH" 
+    echo "Done."
+done
 
