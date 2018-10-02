@@ -14,6 +14,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set nobomb                      " Remove BOM by default
 set autoread                    " Automatic reload of modified files
+set backspace=indent,eol,start
 
 " Theme
 colorscheme molokai
