@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ###
 # PROGRAM configuration install script
@@ -30,7 +30,6 @@ do
     if [ -f "$DEST_PATH" ] || [ -L "$DEST_PATH" ]; then
          rm "$DEST_PATH"
     fi
-    ln -s "$SOURCE_PATH" "$DEST_PATH" 
+    ln -s "$SOURCE_PATH" "$DEST_PATH"
     echo "Done."
 done
-
