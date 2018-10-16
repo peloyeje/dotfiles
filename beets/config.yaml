@@ -1,0 +1,61 @@
+# General settings
+directory: "~/Google Drive/04. Médias/00. Musicothèque/"
+library: "~/Google Drive/04. Médias/00. Musicothèque/library.db"
+threaded: yes
+per_disc_numbering: yes
+
+# Plugins
+plugins: inline beatport discogs
+
+# Import settings
+import:
+    copy: yes
+    write: yes
+    resume: ask
+    timid: yes
+    detail: yes
+
+# Naming settings
+paths:
+    default: $albumartist - $album ($original_year) [$format $custom_bitrate $custom_media] %if{$catalognum,[$catalognum]}/%if{$disc_layer,$disc_layer/}$track - $title
+
+item_fields:
+    disc_layer: |
+        if disctotal > 1:
+           return 'CD' + str(disc)
+        else:
+           return ''
+    custom_media: |
+        if 'digital' in media.lower():
+            return 'WEB'
+        elif 'vinyl' in media.lower():
+            return 'Vinyl'
+        elif 'cd' in media.lower():
+            return 'CD'
+        elif media != '':
+            return media
+        else:
+            return ''
+
+album_fields:
+    custom_bitrate: |
+        total = 0
+        for item in items:
+            total += item.bitrate
+        abr = total / len(items) / 1000
+        if format == 'FLAC':
+            return bitdepth
+        elif abr < 480 and abr >= 320:
+            return '320'
+        elif abr < 320 and abr >= 220:
+            return 'V0'
+        elif abr < 215 and abr >= 170 and abr != 192:
+            return 'V2'
+        elif abr == 192:
+            return '192'
+        elif abr < 170:
+            return abr
+
+# Discogs config
+discogs:
+    user_token: rxYnEGXkyclyEWrvwMYUXvsjMAuHmNQbaJuqWckx
