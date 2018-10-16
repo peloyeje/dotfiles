@@ -9,8 +9,12 @@ set -e
 
 # Base variables
 SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )
-DEST_DIR=$HOME
-CONFIG_FILES=( "config" )
+
+# Software-specific variables
+typeset -A CONFIG_FILES
+
+DEST_DIR="$HOME" # The destination config directory of the program
+CONFIG_FILES[SOURCE]=DEST_PATH # One line per config file
 
 # Creates the destination folder if it doesn't exists
 if [ ! -e "$SOURCE_DIR" ]; then
@@ -18,13 +22,16 @@ if [ ! -e "$SOURCE_DIR" ]; then
 fi
 
 # Symlink files in CONFIG_FILES array into the DEST_DIR
-for file in ${CONFIG_FILES[@]}
+for source dest in ${(kv)CONFIG_FILES};
 do
-    SOURCE_PATH="$SOURCE_DIR/$file"
-    if [ -f "$SOURCE_PATH" ]; then
-        file=".$file"
+    SOURCE_PATH="$SOURCE_DIR/$source"
+
+    if [ ! -f "$SOURCE_PATH" ]; then
+        echo "$SOURCE_PATH is missing, skipping ..."
+        continue
+    else
+        DEST_PATH="$DEST_DIR/$dest"
     fi
-    DEST_PATH="$DEST_DIR/$file"
 
     echo "Symlinking $SOURCE_PATH to $DEST_PATH ..."
     if [ -f "$DEST_PATH" ] || [ -L "$DEST_PATH" ]; then
