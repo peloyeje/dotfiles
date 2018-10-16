@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ###
-# PROGRAM configuration install script
+# Vim configuration install script
 ###
 
 # Exit immediately if a command exits with a non-zero status
@@ -10,7 +10,7 @@ set -e
 # Base variables
 SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )
 DEST_DIR=$HOME
-CONFIG_FILES=( "config" )
+CONFIG_FILES=( "vimrc" )
 
 # Creates the destination folder if it doesn't exists
 if [ ! -e "$SOURCE_DIR" ]; then
@@ -30,7 +30,7 @@ do
     if [ -f "$DEST_PATH" ] || [ -L "$DEST_PATH" ]; then
          rm "$DEST_PATH"
     fi
-    ln -s "$SOURCE_PATH" "$DEST_PATH" 
+    ln -s "$SOURCE_PATH" "$DEST_PATH"
     echo "Done."
 done
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Run all configuration scripts
 
@@ -6,7 +6,7 @@ set -e
 
 for program in $(ls $(pwd))
 do
-    if [ ! -d $program ] || [ "$program" == "template" ]; then
+    if [ ! -d $program ] || [ "$program" = "template" ]; then
 	# Skip value if it is the "template" folder or not a directory
         continue
     fi
