@@ -5,7 +5,7 @@ threaded: yes
 per_disc_numbering: yes
 
 # Plugins
-plugins: inline beatport discogs
+plugins: inline beatport discogs fetchart
 
 # Import settings
 import:
@@ -65,6 +65,10 @@ album_fields:
 
         return " ".join(o)
 
-# Discogs config
 discogs:
     user_token: rxYnEGXkyclyEWrvwMYUXvsjMAuHmNQbaJuqWckx
+
+fetchart:
+    minwidth: 500
+    maxwidth: 1000
+    sources: coverart itunes amazon albumart google
