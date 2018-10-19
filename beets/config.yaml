@@ -17,44 +17,53 @@ import:
 
 # Naming settings
 paths:
-    default: $albumartist - $album ($original_year) [$format $custom_bitrate $custom_media] %if{$catalognum,[$catalognum]}/%if{$disc_layer,$disc_layer/}$track - $title
+    default: $albumartist - $album ($original_year) [$source] %if{$catalognum,[$catalognum]}/%if{$disc_layer,$disc_layer/}$track - $title
 
 item_fields:
-    disc_layer: |
-        if disctotal > 1:
-           return 'CD' + str(disc)
-        else:
-           return ''
-    custom_media: |
-        if 'digital' in media.lower():
-            return 'WEB'
-        elif 'vinyl' in media.lower():
-            return 'Vinyl'
-        elif 'cd' in media.lower():
-            return 'CD'
-        elif media != '':
-            return media
-        else:
-            return ''
+    disc_layer:
+        return 'CD' + str(disc) if (disctotal > 1) else None
 
 album_fields:
-    custom_bitrate: |
-        total = 0
-        for item in items:
-            total += item.bitrate
-        abr = total / len(items) / 1000
-        if format == 'FLAC':
-            return bitdepth
-        elif abr < 480 and abr >= 320:
-            return '320'
+    source: |
+        media = set([i.media.lower() for i in items])
+        format = set([i.format for i in items])
+        tbr = sum([i.bitrate for i in items])
+        abr = tbr / len(items) / 1000
+        bitdepth = sum([i.bitdepth for i in items]) // len(items)
+
+        # Init output
+        o = [f for f in format] if format else []
+
+        # Handle bitrate categories
+        for f in format:
+            if f == 'FLAC':
+                o.append(str(bitdepth) + 'b')
+
+        if abr < 480 and abr >= 320:
+            o.append('320')
         elif abr < 320 and abr >= 220:
-            return 'V0'
+            o.append('V0')
         elif abr < 215 and abr >= 170 and abr != 192:
-            return 'V2'
+            o.append('V2')
         elif abr == 192:
-            return '192'
+            o.append('192')
         elif abr < 170:
-            return abr
+            o.append(str(abr))
+
+        # Handle media aliases
+        for m in media:
+            if any(t in m for t in ('digital', 'file')):
+                o.append('WEB')
+            elif 'vinyl' in m:
+                o.append('Vinyl')
+            elif 'cd' in m:
+                o.append('CD')
+            elif m != '':
+                o.append(m)
+
+        print(o)
+
+        return " ".join(o)
 
 # Discogs config
 discogs:
