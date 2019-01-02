@@ -24,6 +24,7 @@ fi
 # Set up brew
 $(command -v brew) update
 $(command -v brew) tap homebrew/cask
+$(command -v brew) tap homebrew/cask-fonts 
 
 # Install packages
 $(command -v brew) install -f $(cat $SOURCE_DIR/packages.txt) 2>&1
