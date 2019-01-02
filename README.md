@@ -2,7 +2,7 @@
 
 ### Usage
 
-Make sure your running shell is Bash 3.2 or higher.
+Make sure you're running Bash 3.2 or higher.
 
 ```
 $ chmod +x install.sh && ./install.sh
