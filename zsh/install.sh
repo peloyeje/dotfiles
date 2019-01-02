@@ -11,8 +11,8 @@ set -e
 SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )
 
 # Config files
-SOURCE_FILES=(zshrc)
-DEST_FILES=(.zshrc)
+SOURCE_FILES=(zshrc zshenv)
+DEST_FILES=(.zshrc .zshenv)
 
 DEST_DIR="$HOME" # The destination config directory of the program
 
