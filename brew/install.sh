@@ -26,10 +26,10 @@ $(command -v brew) update
 $(command -v brew) tap homebrew/cask
 
 # Install packages
-$(command -v brew) install -f $(cat $SOURCE_DIR/packages.txt)
+$(command -v brew) install -f $(cat $SOURCE_DIR/packages.txt) 2>&1
 
 # Install casks
-$(command -v brew) casks install -f $(cat $SOURCE_DIR/casks.txt)
+$(command -v brew) cask install -f $(cat $SOURCE_DIR/casks.txt) 2>&1
 
 # Cleanup
 $(command -v brew) doctor
