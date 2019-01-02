@@ -30,3 +30,9 @@ $(command -v brew) install -f $(cat packages.txt)
 
 # Install casks
 $(command -v brew) casks install -f $(cat casks.txt)
+
+# Cleanup
+$(command -v brew) doctor
+$(command -v brew) update
+$(command -v brew) cleanup
+$(command -v brew) cask cleanup
