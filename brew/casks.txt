@@ -1,6 +1,5 @@
 android-platform-tools
 atom
-blisk
 caffeine
 delta
 docker
