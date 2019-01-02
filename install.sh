@@ -5,7 +5,7 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-PROGRAMS=(git vim tmux beets)
+PROGRAMS=(brew zsh git vim tmux beets)
 
 for program in ${PROGRAMS[@]}
 do
