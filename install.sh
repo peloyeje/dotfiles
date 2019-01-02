@@ -1,10 +1,13 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Run all configuration scripts
 
+# Exit immediately if a command exits with a non-zero status
 set -e
 
-for program in $(ls $(pwd))
+PROGRAMS=(git vim tmux beets)
+
+for program in ${PROGRAMS[@]}
 do
     if [ ! -d $program ] || [ "$program" = "template" ]; then
 	# Skip value if it is the "template" folder or not a directory
