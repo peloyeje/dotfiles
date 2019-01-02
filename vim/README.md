@@ -2,7 +2,7 @@
 
 Here's the basic configuration I use as a Vim learner. No hidden gems but a good starting point :-)
 
-#### Installation
+#### Usage
 
 1. Run the `install.sh` script
 2. Open vim
@@ -20,4 +20,4 @@ Here's the basic configuration I use as a Vim learner. No hidden gems but a good
 
 #### Credits
 
-Many thanks to [@ericdaat](@ericdaat) and [@YohanGrember](@YohanGrember) for their useful tips and config snippets !
+Many thanks to [@ericdaat](@ericdaat) and [@YohanGrember](@YohanGrember) for their useful tips and config snippets.
