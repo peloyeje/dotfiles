@@ -17,8 +17,8 @@ DEST_DIR="$HOME/.config/beets"
 CONFIG_FILES[config.yaml]=config.yaml
 
 # Creates the destination folder if it doesn't exists
-if [ ! -e "$SOURCE_DIR" ]; then
-    mkdir -p "$SOURCE_DIR"
+if [ ! -e "$DEST_DIR" ]; then
+    mkdir -p "$DEST_DIR"
 fi
 
 # Symlink files in CONFIG_FILES array into the DEST_DIR
