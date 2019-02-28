@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 autoload zmv
 
 # Aliases
-alias ll="ls -larth"
+alias ls="ls -lah"
 
 # pyenv
 if [ -x "$(command -v pyenv)" ]; then
