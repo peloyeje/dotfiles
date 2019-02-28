@@ -5,7 +5,16 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-PROGRAMS=(osx brew zsh git vim tmux beets atom)
+PROGRAMS=(
+    osx
+    brew
+    zsh
+    git
+    vim
+    tmux
+    beets
+    atom
+)
 
 for program in ${PROGRAMS[@]}
 do
