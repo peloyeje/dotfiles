@@ -5,16 +5,24 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-PROGRAMS=(
-    osx
-    brew
-    zsh
-    git
-    vim
-    tmux
-    beets
-    atom
-)
+# Import dependencies
+source ./utils.sh
+
+# Specify scripts to run as arguments. Otherwise run the setup default sequence.
+if [ $# -gt 0 ]; then
+    PROGRAMS="$@"
+else
+    PROGRAMS=(
+        osx
+        brew
+        zsh
+        git
+        vim
+        tmux
+        beets
+        atom
+    )
+fi
 
 for program in ${PROGRAMS[@]}
 do
