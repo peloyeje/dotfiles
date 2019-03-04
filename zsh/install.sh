@@ -63,11 +63,13 @@ UTILS=("coreutils" "findutils" "diffutils" "gnu-sed" "gnu-tar" "grep")
 for util in  ${UTILS[@]}
 do
     log "[zsh]" "Installing $util ..."
-    # Install
+    # Install executable
     "$(command -v brew)" install $util
     # Setup PATH to use these binaries by default
-    grep -v "$util" "$HOME/.zshrc" > "$HOME/.zshrc.tmp"
-    cat "$HOME/.zshrc.tmp" > "$HOME/.zshrc"
-    rm "$HOME/.zshrc.tmp"
-    echo -e "\n# $util\nexport PATH="/usr/local/opt/$util/libexec/gnubin:\$PATH"" >> "$HOME/.zshrc"
+    if [ -f "$HOME/.gnu.paths" ]; then
+        grep -v "$util" "$HOME/.gnu.paths" > "$HOME/.gnu.paths.tmp"
+        cat "$HOME/.gnu.paths.tmp" > "$HOME/.gnu.paths"
+        rm "$HOME/.gnu.paths.tmp"
+    fi
+    echo -e "\n# $util\nexport PATH="/usr/local/opt/$util/libexec/gnubin:\$PATH"" >> "$HOME/.gnu.paths"
 done
