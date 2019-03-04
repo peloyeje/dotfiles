@@ -7,16 +7,19 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+# Import dependencies
+source ./utils.sh
+
 # Base variables
 SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )
 
 # Make sure brew is installed first
 if [ ! -x "$(command -v brew)" ]; then
-    echo 'Installing brew ...' >&2
+    log "[brew]" 'Installing brew ...' >&2
     if [ -x "$(command -v ruby)" ]; then
-        $(command -v ruby) -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        "$(command -v ruby)" -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
-        echo "Ruby is not installed; aborting"
+        log "[brew]" "Ruby is not installed; aborting"
         exit 1
     fi
 fi

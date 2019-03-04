@@ -9,6 +9,9 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+# Import dependencies
+source ./utils.sh
+
 # Base variables
 SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )
 source $SOURCE_DIR/vars.sh
@@ -81,7 +84,7 @@ if [ -x $(command -v csrutil) ]; then
         # ...and make sure it can’t be rewritten
         sudo chflags uchg /private/var/vm/sleepimage
     else
-        echo "Skipping hibernation disabling: SIP enabled"
+        log "[OSX]" "Skipping hibernation disabling: SIP enabled"
     fi
 fi
 
