@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 ###
-# PROGRAM configuration install script
+# zsh configuration install script
 ###
 
-# Exit immediately if a command exits with a non-zero status
-set -e
+# Import dependencies
+source ./utils.sh
 
 # Base variables
 SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )

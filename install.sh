@@ -25,8 +25,8 @@ do
 
     # Check if the "program" folder has an executable install script
     if [ -f "$program/install.sh" ] && [ -x "$program/install.sh" ]; then
-        echo "> Start $program install script ..."
+        log "Start $program install script ..."
         "$program/install.sh"
-        echo "> Done."
+        log "Done."
     fi
 done
