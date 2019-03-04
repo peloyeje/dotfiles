@@ -26,7 +26,7 @@ $(command -v brew) update
 $(command -v brew) tap homebrew/cask
 $(command -v brew) tap homebrew/cask-fonts
 
-# Install packages
+# Install CLI packages
 $(command -v brew) install -f $(cat $SOURCE_DIR/packages.txt) 2>&1
 
 # Install casks
