@@ -43,3 +43,7 @@ if [ -x "$(command -v nvm)" ]; then
     export NVM_DIR="$HOME/.nvm"
     source "/usr/local/opt/nvm/nvm.sh"
 fi
+
+if [ -f "$HOME/.gnu.paths" ]; then
+    source "$HOME/.gnu.paths"
+fi
