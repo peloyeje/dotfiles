@@ -1,11 +1,10 @@
 cmake
-cmatrix
 ffmpeg
 gcc
 go
 git
+gzip
 htop
-hugo
 imagemagick
 iperf3
 nmap
