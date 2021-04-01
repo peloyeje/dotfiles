@@ -35,4 +35,6 @@
     enabled = true
 [user]
     name = Jean-Eudes Peloye
-    email = hello@peloye.je
+    email = peloye.je@gmail.com
+[pull]
+    rebase = true
