@@ -19,8 +19,8 @@ else
         git
         vim
         tmux
-        beets
-        atom
+        # beets
+        # atom
     )
 fi
 
@@ -31,7 +31,7 @@ do
         continue
     fi
 
-    # Check if the "program" folder has an executable install script
+    # Check if the "program" folder has an executable install script, and run it
     if [ -f "$program/install.sh" ] && [ -x "$program/install.sh" ]; then
         log "Start $program install script ..."
         "$program/install.sh"
