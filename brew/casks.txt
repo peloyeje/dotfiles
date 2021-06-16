@@ -3,16 +3,11 @@ appcleaner
 docker
 firefox
 google-backup-and-sync
-google-chrome
 google-cloud-sdk
-handbrake
 imageoptim
 intel-power-gadget
-iina
-java
 lulu
 macpass
-mediainfo
 postman
 mactex-no-gui
 notion
@@ -23,3 +18,4 @@ virtualbox
 vlc
 wine-stable
 xact
+visual-studio-code
