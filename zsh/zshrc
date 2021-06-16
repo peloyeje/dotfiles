@@ -55,3 +55,6 @@ fi
 if [ -f "$HOME/.gnu.paths" ]; then
     source "$HOME/.gnu.paths"
 fi
+
+# sbin
+export PATH="/usr/local/sbin:$PATH"
