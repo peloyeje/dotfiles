@@ -1,8 +1,0 @@
-# ZSH
-export ZSH=~/.oh-my-zsh
-export UPDATE_ZSH_DAYS=30
-
-# Profile
-export LANG=en_US.UTF-8
-export SSH_KEY_PATH="~/.ssh/id_rsa"
-export EDITOR='vim'

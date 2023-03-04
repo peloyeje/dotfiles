@@ -3,12 +3,12 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 ZSH_THEME="risto"
 HYPHEN_INSENSITIVE="true"
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 plugins=(
     ubuntu
-    git 
-    docker 
+    git
+    docker
     docker-compose
     sudo
     zsh-autosuggestions
@@ -16,7 +16,9 @@ plugins=(
 )
 
 export ZSH="/home/${USER}/.oh-my-zsh"
+
 source $ZSH/oh-my-zsh.sh
+autoload zmv
 
 # OS conf
 export VISUAL=vim
@@ -38,26 +40,35 @@ fi
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
 # Pyenv
-export PATH=$PATH:$HOME/.pyenv/bin
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
-eval "$(pyenv init -)"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+if [ command -v pyenv &> /dev/null ]; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Direnv
-eval "$(direnv hook zsh)"
+if [ command -v direnv &> /dev/null ]; then
+    eval "$(direnv hook zsh)"
+fi
 
 # Terraform
 export PATH=$PATH:$HOME/.tfenv/bin
 
 # k8s
 export KUBECONFIG="${HOME}/.kube/config"
-source <(kubectl completion zsh)
+
+if [ command -v kubectl &> /dev/null ]; then
+    source <(kubectl completion zsh)
+fi
 
 # Android SDK
 export ANDROID_SDK_ROOT=/opt/android-sdk
@@ -65,9 +76,9 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # Maven
-export M2_HOME="/opt/apache-maven-3.8.6" 
-export M2=$M2_HOME/bin 
-export MAVEN_OPTS="-Xms256m -Xmx512m" 
+export M2_HOME="/opt/apache-maven-3.8.6"
+export M2=$M2_HOME/bin
+export MAVEN_OPTS="-Xms256m -Xmx512m"
 export PATH=$M2:$PATH
 
 autoload -Uz compinit
