@@ -1,8 +1,0 @@
-atom-ide-ui
-docblock-python
-ide-python
-language-latex
-language-vue
-latex
-pdf-view
-

@@ -1,0 +1,32 @@
+[alias]
+	cm = commit -m # Commit with message
+	a = add -p # Stage chunks of code
+	aa = add -u # Stage all chunks of modified files
+	st = status -sb # Status short output
+	ds = diff --staged # Show diff of staged files/chunks
+	co = checkout
+	f = fetch -pt # Include tags in remote fetch and prune deleted remote branches
+	p = pull --rebase --autostash
+	ca = commit --amend --no-edit # Amends last commit (change msg/add new files)
+	cam = commit --amend # Amends last commit (change msg/add new files)
+	cf = commit --fixup # Amends a given commit (by hash)
+	rb = rebase -i --autostash --autosquash # Interactive rebase with automatic clean of fixup and squashes
+	rbm = rebase -i --autostash --autosquash master # Interactive rebase with automatic clean of fixup and squashes
+	cleanup = "!git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done" # Remove local branches that no longer exist on the remote
+	ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit # Compact log display
+[protocol]
+	version = 2
+[gitreview]
+	remote = origin
+	notopic = true
+[color]
+	diff = true
+	status = auto
+	branch = auto
+	interactive = true
+	ui = true
+	pager = true
+[pull]
+	rebase = true
+[diff]
+	submodule = log

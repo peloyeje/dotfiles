@@ -1,20 +1,28 @@
-## dotfiles
+# dotfiles
 
-### Usage
+Managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-Make sure you're running Bash 3.2 or higher.
+## Getting started
 
+Install `stow`
+
+```shell
+sudo apt update
+sudo apt install -y stow
 ```
-$ chmod +x install.sh && ./install.sh
+
+Install programs by running the `install.sh` script of every app in `apps/`
+
+```shell
+cd scripts/
+./install-all-apps.sh
 ```
 
-### Configuration files
+Create the configuration symlinks
 
-* [Atom](/atom)
-* [beets](/beets)
-* [brew](/brew)
-* [git](/git)
-* [macOS](/osx)
-* [tmux](/tmux)
-* [vim](/vim)
-* [zsh](/zsh)
+```shell
+cd apps/
+stow --ignore "\.(md|sh)" -Rvt ~ *
+```
+
+All good :rocket:
