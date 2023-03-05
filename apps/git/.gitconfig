@@ -30,3 +30,5 @@
 	rebase = true
 [diff]
 	submodule = log
+[push]
+        autoSetupRemote = true
