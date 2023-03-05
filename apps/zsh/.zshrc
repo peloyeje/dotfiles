@@ -34,6 +34,7 @@ alias cleanpy="sudo find ./ -type f -name '*.pyc' -delete -print && find ./ -typ
 
 if [ -f "${HOME}/.zshrc.local" ]; then
     source "${HOME}/.zshrc.local"
+    echo "Local .zshrc loaded"
 fi
 
 # Go
@@ -43,10 +44,11 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-if [ command -v pyenv &> /dev/null ]; then
+if command -v pyenv >/dev/null 2>&1; then
     eval "$(pyenv init -)"
     eval "$(pyenv init --path)"
     eval "$(pyenv virtualenv-init -)"
+    echo "pyenv loaded"
 fi
 
 # NVM
@@ -66,8 +68,9 @@ export PATH=$PATH:$HOME/.tfenv/bin
 # k8s
 export KUBECONFIG="${HOME}/.kube/config"
 
-if [ command -v kubectl &> /dev/null ]; then
+if command -v kubectl >/dev/null 2>&1; then
     source <(kubectl completion zsh)
+    echo "kubectl loaded"
 fi
 
 # Android SDK
