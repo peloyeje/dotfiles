@@ -91,3 +91,6 @@ compinit
 
 # pipx
 export PATH="$PATH:/home/jep/.local/bin"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
