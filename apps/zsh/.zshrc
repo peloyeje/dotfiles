@@ -58,8 +58,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Direnv
-if [ command -v direnv &> /dev/null ]; then
+if command -v direnv >/dev/null 2>&1; then
     eval "$(direnv hook zsh)"
+    echo "direnv loaded"
 fi
 
 # Terraform
