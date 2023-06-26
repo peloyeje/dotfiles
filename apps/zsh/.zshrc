@@ -95,3 +95,9 @@ export PATH="$PATH:/home/jep/.local/bin"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Github CLI
+if command -v gh >/dev/null 2>&1; then
+    source <(gh completion -s zsh)
+    echo "gh loaded"
+fi
