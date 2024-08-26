@@ -10,12 +10,13 @@ plugins=(
     git
     docker
     docker-compose
+    kubectl
     sudo
     zsh-autosuggestions
     vi-mode
 )
 
-export ZSH="/home/${USER}/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 source $ZSH/oh-my-zsh.sh
 autoload zmv
@@ -26,16 +27,10 @@ export EDITOR="$VISUAL"
 
 # Aliases
 alias ls="ls -larth"
-alias pbcopy="xclip -selection clipboard"
-alias pbpaste="xclip -selection clipboard -o"
 alias cleanpy="sudo find ./ -type f -name '*.pyc' -delete -print && find ./ -type d -name "__pycache__" -delete -print"
 
-# Local conf (not committed)
-
-if [ -f "${HOME}/.zshrc.local" ]; then
-    source "${HOME}/.zshrc.local"
-    echo "Local .zshrc loaded"
-fi
+# Brew
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
 # Go
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
@@ -90,9 +85,6 @@ zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 compinit
 
-# pipx
-export PATH="$PATH:/home/jep/.local/bin"
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -101,3 +93,13 @@ if command -v gh >/dev/null 2>&1; then
     source <(gh completion -s zsh)
     echo "gh loaded"
 fi
+
+# XDG bin (taking precedence over homebrew)
+export PATH=$HOME/.local/bin:$PATH
+
+# Local conf (not committed)
+if [ -f "${HOME}/.zshrc.local" ]; then
+    source "${HOME}/.zshrc.local"
+    echo "local .zshrc loaded"
+fi
+
