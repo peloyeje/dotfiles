@@ -14,6 +14,7 @@
 	rbm = rebase -i master # Interactive rebase with automatic clean of fixup and squashes
 	cleanup = "!git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done" # Remove local branches that no longer exist on the remote
 	ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit # Compact log display
+        b = branch --sort=-committerdate
 [protocol]
 	version = 2
 [gitreview]
