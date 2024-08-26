@@ -44,7 +44,11 @@ set wrap                        " Wrap to new lines the lines exeed 80 chars
 
 " Pasting
 set pastetoggle=<F10>
-set clipboard=unnamedplus
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
 
 " Vim CLI behavior
 set wildmenu
