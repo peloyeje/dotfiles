@@ -32,6 +32,9 @@ alias cleanpy="sudo find ./ -type f -name '*.pyc' -delete -print && find ./ -typ
 # Brew
 export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
+# XDG bin (taking precedence over homebrew)
+export PATH=$HOME/.local/bin:$PATH
+
 # Go
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
@@ -93,9 +96,6 @@ if command -v gh >/dev/null 2>&1; then
     source <(gh completion -s zsh)
     echo "gh loaded"
 fi
-
-# XDG bin (taking precedence over homebrew)
-export PATH=$HOME/.local/bin:$PATH
 
 # Local conf (not committed)
 if [ -f "${HOME}/.zshrc.local" ]; then
