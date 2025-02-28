@@ -1,0 +1,126 @@
+# OS conf
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# brew PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+
+# XDG bin (taking precedence over homebrew)
+export PATH=$HOME/.local/bin:$PATH
+
+# zsh customization
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+
+autoload zmv
+autoload -Uz compinit
+compinit
+
+plug "Aloxaf/fzf-tab"
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+plug "zsh-users/zsh-autosuggestions"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "zap-zsh/sudo"
+
+# Enable vi bindings
+bindkey -v
+
+# eza
+if ! (( $+commands[eza] )); then
+    echo "ERROR: 'eza' command not found"
+    return
+fi
+
+
+# Create alias override commands using 'eza'
+alias ls='eza --group-directories-first -a'
+
+# Use the --git flag if the installed version of eza supports git
+# Related to https://github.com/ogham/exa/issues/978
+if eza --version | grep -q '+git';
+then
+    alias ll='ls -lh --git'
+else
+    alias ll='ls -lh'
+fi
+
+alias tree='ll --tree --level=2'
+
+# Starship.rs (prompt)
+eval "$(starship init zsh)"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Atuin (defined after fzf to override CTRL+R)
+source $HOME/.atuin/bin/env
+eval "$(atuin init zsh)"
+
+# GNU tools
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# Go
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+
+# Python
+export UV_PYTHON_PREFERENCE=only-managed
+
+# Node
+export NVM_DIR="$HOME/.nvm"
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# direnv
+if command -v direnv >/dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+    echo "direnv loaded"
+fi
+
+# Terraform
+export PATH=$PATH:$HOME/.tfenv/bin
+
+# k8s
+export KUBECONFIG="${HOME}/.kube/config"
+
+if command -v kubectl >/dev/null 2>&1; then
+    source <(kubectl completion zsh)
+    echo "kubectl loaded"
+fi
+
+# Android SDK
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+# Maven
+export M2_HOME="/opt/apache-maven-3.8.6"
+export M2=$M2_HOME/bin
+export MAVEN_OPTS="-Xms256m -Xmx512m"
+export PATH=$M2:$PATH
+
+
+# Github CLI
+if command -v gh >/dev/null 2>&1; then
+    source <(gh completion -s zsh)
+    echo "gh loaded"
+fi
+
+# Rust
+export PATH=$HOME/.cargo/bin:$PATH
+
+# Aliases
+alias cleanpy="sudo find ./ -type f -name '*.pyc' -delete -print && find ./ -type d -name "__pycache__" -delete -print"
+
+# Local conf (not committed)
+if [ -f "${HOME}/.zshrc.local" ]; then
+    source "${HOME}/.zshrc.local"
+    echo "local .zshrc loaded"
+fi
