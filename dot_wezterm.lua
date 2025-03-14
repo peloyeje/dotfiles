@@ -8,6 +8,9 @@ local config = wezterm.config_builder()
 config.enable_tab_bar = false
 config.scrollback_lines = 10000
 
+-- Start tmux by default
+config.default_prog = { '/opt/homebrew/bin/tmux' }
+
 -- Fixes pipe key shortcut on macos
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = false
