@@ -14,12 +14,9 @@
 	rbm = rebase -i master # Interactive rebase with automatic clean of fixup and squashes
 	cleanup = "!git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done" # Remove local branches that no longer exist on the remote
 	ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit # Compact log display
-        b = branch --sort=-committerdate
-[protocol]
-	version = 2
-[gitreview]
-	remote = origin
-	notopic = true
+    b = branch --sort=-committerdate
+[branch]
+    sort = -committerdate
 [color]
 	diff = true
 	status = auto
@@ -27,12 +24,36 @@
 	interactive = true
 	ui = true
 	pager = true
-[pull]
-	rebase = true
+[column]
+    ui = auto
 [diff]
 	submodule = log
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+[gitreview]
+	remote = origin
+	notopic = true
+[init]
+    defaultBranch = main
+[protocol]
+	version = 2
+[pull]
+	rebase = true
 [push]
-        autoSetupRemote = true
+    default = simple
+    autoSetupRemote = true
+    followTags = true
 [rebase]
-        autoStash = true
-        autoSquash = true
+    autoStash = true
+    autoSquash = true
+[tag]
+    sort = version:refname
+[user]
+    name = {{ .name | quote }}
+    email = {{ .email | quote }}

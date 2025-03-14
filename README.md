@@ -1,28 +1,8 @@
 # dotfiles
 
-Managed with [GNU Stow](https://www.gnu.org/software/stow/).
+Managed with [chezmoi](https://www.chezmoi.io/).
 
 ## Getting started
 
-Install `stow`
-
-```shell
-sudo apt update
-sudo apt install -y stow
-```
-
-Install programs by running the `install.sh` script of every app in `apps/`
-
-```shell
-cd scripts/
-./install-all-apps.sh
-```
-
-Create the configuration symlinks
-
-```shell
-cd apps/
-stow --ignore "\.(md|sh)" -Rvt ~ *
-```
-
-All good :rocket:
+1. Install chezmoi
+2. Run `chezmoi init --apply --verbose https://github.com/peloyeje/dotfiles.git`
