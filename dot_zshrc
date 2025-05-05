@@ -60,7 +60,6 @@ eval "$(starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Atuin (defined after fzf to override CTRL+R)
-source $HOME/.atuin/bin/env
 eval "$(atuin init zsh)"
 
 # GNU tools
