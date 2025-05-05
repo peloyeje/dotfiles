@@ -31,7 +31,6 @@ packages:
       - 'grep'
       - 'gron'
       - 'helmfile'
-      - 'hookdeck'
       - 'htop'
       - 'imagemagick'
       - 'ipcalc'
