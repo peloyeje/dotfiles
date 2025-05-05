@@ -3,6 +3,7 @@ packages:
     brews:
       - 'ack'
       - 'act'
+      - 'atuin'
       - 'awscli'
       - 'bash'
       - 'bash-completion'
