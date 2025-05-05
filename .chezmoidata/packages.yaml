@@ -20,6 +20,7 @@ packages:
       - 'fd'
       - 'ffmpeg'
       - 'findutils'
+      - 'fzf'
       - 'gawk'
       - 'gh'
       - 'git-absorb'
