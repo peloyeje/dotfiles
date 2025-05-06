@@ -47,6 +47,7 @@ packages:
       - 'mtr'
       - 'nmap'
       - 'ollama'
+      - 'openjdk@11'
       - 'pandoc'
       - 'pgcli'
       - 'pkgconf'
