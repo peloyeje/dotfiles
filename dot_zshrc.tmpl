@@ -71,8 +71,9 @@ export DOCKER_HOST=unix:///Users/{{ .username }}/.colima/default/docker.sock
 # Go
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
-# Python
+# Python / uv
 export UV_PYTHON_PREFERENCE=only-managed
+eval "$(uv generate-shell-completion zsh)"
 
 # Node
 export NVM_DIR="$HOME/.nvm"
