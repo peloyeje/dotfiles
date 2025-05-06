@@ -57,7 +57,7 @@
 [tag]
     sort = version:refname
 [user]
-    name = {{ .name | quote }}
+    name = {{ .full_name | quote }}
     email = {{ .email | quote }}
     signingkey = {{ .git_pubkey | quote }}
 [gpg]
