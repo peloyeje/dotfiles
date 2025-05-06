@@ -1,6 +1,8 @@
 {{- $name := promptStringOnce . "name" "Nom" -}}
 {{- $email := promptStringOnce . "email" "Email" -}}
+{{- $git_pubkey := promptStringOnce . "git_pubkey" "Git" -}}
 
 [data]
     name = {{ $name | quote }}
     email = {{ $email | quote }}
+    git_pubkey = {{ $git_pubkey | quote }}

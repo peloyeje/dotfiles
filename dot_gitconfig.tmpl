@@ -26,6 +26,8 @@
 	pager = true
 [column]
     ui = auto
+[commit]
+    gpgsign = true
 [diff]
 	submodule = log
     algorithm = histogram
@@ -57,3 +59,8 @@
 [user]
     name = {{ .name | quote }}
     email = {{ .email | quote }}
+    signingkey = {{ .git_pubkey | quote }}
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
