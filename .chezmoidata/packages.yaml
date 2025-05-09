@@ -83,6 +83,7 @@ packages:
       - 'jetbrains-toolbox'
       - 'obsidian'
       - 'postman'
+      - 'rectangle'
       - 'slack'
       - 'spotify'
       - 'stats'
