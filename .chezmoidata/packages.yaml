@@ -46,6 +46,7 @@ packages:
       - 'maven'
       - 'mtr'
       - 'nmap'
+      - 'nvm'
       - 'ollama'
       - 'openjdk@11'
       - 'pandoc'
