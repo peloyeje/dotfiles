@@ -74,7 +74,6 @@ packages:
       - '1password'
       - '1password-cli'
       - 'android-platform-tools'
-      - 'betterdisplay'
       - 'corretto@8'
       - 'corretto@11'
       - 'corretto@17'
