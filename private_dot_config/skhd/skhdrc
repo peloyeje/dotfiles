@@ -1,0 +1,59 @@
+# from: https://www.josean.com/posts/yabai-setup
+
+# change window focus within space
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+
+#change focus between external displays (left and right)
+alt - s: yabai -m display --focus west
+alt - g: yabai -m display --focus east
+
+# rotate layout clockwise
+shift + alt - r : yabai -m space --rotate 270
+
+# flip along y-axis
+shift + alt - y : yabai -m space --mirror y-axis
+
+# flip along x-axis
+shift + alt - x : yabai -m space --mirror x-axis
+
+# toggle window float
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# maximize a window
+shift + alt - m : yabai -m window --toggle zoom-fullscreen
+
+# balance out tree of windows (resize to occupy same area)
+shift + alt - e : yabai -m space --balance
+
+# swap windows
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - h : yabai -m window --swap west
+shift + alt - l : yabai -m window --swap east
+
+# move window to display left and right
+shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
+shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
+
+# NB: not working yet on macOS 15.4 with yabai 7.1.x with SIP enabled
+# move window to prev and next space
+shift + alt - p : yabai -m window --space prev;
+shift + alt - n : yabai -m window --space next;
+
+# NB: not working yet on macOS 15.4 with yabai 7.1.x with SIP enabled
+# move window to space #
+shift + alt - 0x12 : yabai -m window --space 1;
+shift + alt - 0x13 : yabai -m window --space 2;
+shift + alt - 0x14 : yabai -m window --space 3;
+shift + alt - 0x15 : yabai -m window --space 4;
+shift + alt - 0x17 : yabai -m window --space 5;
+shift + alt - 0x16 : yabai -m window --space 6;
+shift + alt - 0x1A : yabai -m window --space 7;
+shift + alt - 0x1C : yabai -m window --space 8;
+shift + alt - 0x19 : yabai -m window --space 9;
+
+# restart yabai & skhd
+ctrl + alt - r : yabai --restart-service && skhd --restart-service
