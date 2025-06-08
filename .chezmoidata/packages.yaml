@@ -39,6 +39,7 @@ packages:
       - 'ipcalc'
       - 'iperf3'
       - 'jq'
+      - 'kubectx'
       - 'k9s'
       - 'koekeishiya/formulae/yabai'
       - 'koekeishiya/formulae/skhd'
