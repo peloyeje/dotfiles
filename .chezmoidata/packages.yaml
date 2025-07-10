@@ -34,6 +34,7 @@ packages:
       - 'gron'
       - 'hashicorp/tap/vault'
       - 'helmfile'
+      - 'hyperfine'
       - 'htop'
       - 'imagemagick'
       - 'ipcalc'
