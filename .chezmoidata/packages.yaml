@@ -50,6 +50,7 @@ packages:
       - 'lazygit'
       - 'maven'
       - 'mtr'
+      - 'navi'
       - 'nmap'
       - 'nvm'
       - 'ollama'
