@@ -47,6 +47,7 @@ packages:
       - 'kubectx'
       - 'kubernetes-cli'
       - 'kubeseal'
+      - 'lazygit'
       - 'maven'
       - 'mtr'
       - 'nmap'
