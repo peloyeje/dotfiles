@@ -67,7 +67,6 @@ packages:
       - 'stow'
       - 'tfenv'
       - 'tflint'
-      - 'tig'
       - 'tldr'
       - 'tmux'
       - 'tree'
