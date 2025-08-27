@@ -1,10 +1,8 @@
-{{- $username := promptStringOnce . "username" "Nom d'utilisateur" -}}
 {{- $full_name := promptStringOnce . "full_name" "Nom complet" -}}
 {{- $email := promptStringOnce . "email" "Email" -}}
 {{- $git_pubkey := promptStringOnce . "git_pubkey" "Git public SSH key" -}}
 
 [data]
-    username = {{ $username | quote }}
     full_name = {{ $full_name | quote }}
     email = {{ $email | quote }}
     git_pubkey = {{ $git_pubkey | quote }}
