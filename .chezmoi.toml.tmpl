@@ -1,7 +1,7 @@
 {{- $username := promptStringOnce . "username" "Nom d'utilisateur" -}}
 {{- $full_name := promptStringOnce . "full_name" "Nom complet" -}}
 {{- $email := promptStringOnce . "email" "Email" -}}
-{{- $git_pubkey := promptStringOnce . "git_pubkey" "Git" -}}
+{{- $git_pubkey := promptStringOnce . "git_pubkey" "Git public SSH key" -}}
 
 [data]
     username = {{ $username | quote }}
