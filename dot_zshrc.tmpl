@@ -64,9 +64,6 @@ eval "$(atuin init zsh --disable-up-arrow)"
 # GNU tools
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 
-# Docker (colima)
-export DOCKER_HOST=unix:///Users/{{ .username }}/.colima/default/docker.sock
-
 # Go
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
@@ -120,6 +117,9 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 # Claude Code
 export PATH=$HOME/.claude/local:$PATH
+
+# awsd (profile switcher)
+alias awsd="source _awsd"
 
 # Aliases
 alias cleanpy="sudo find ./ -type f -name '*.pyc' -delete -print && find ./ -type d -name "__pycache__" -delete -print"
