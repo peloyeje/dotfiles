@@ -26,6 +26,7 @@ packages:
       - 'git-absorb'
       - 'gnu-getopt'
       - 'gnu-indent'
+      - 'git-lfs'
       - 'gnu-sed'
       - 'gnu-tar'
       - 'gnutls'
