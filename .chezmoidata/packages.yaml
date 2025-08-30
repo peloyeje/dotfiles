@@ -90,6 +90,7 @@ packages:
       - 'foobar2000'
       - 'google-chrome'
       - 'google-drive'
+      - 'karabiner-elements'
       - 'iina'
       - 'jetbrains-toolbox'
       - 'obsidian'
