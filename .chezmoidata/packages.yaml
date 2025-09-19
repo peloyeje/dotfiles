@@ -82,6 +82,7 @@ packages:
       - '1password'
       - '1password-cli'
       - 'android-platform-tools'
+      - 'betterdisplay'
       - 'chatgpt'
       - 'corretto@8'
       - 'corretto@11'
