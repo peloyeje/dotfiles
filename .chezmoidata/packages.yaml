@@ -61,7 +61,6 @@ packages:
       - 'pv'
       - 'reattach-to-user-namespace'
       - 'ripgrep'
-      - 'radiusmethod/awsd/awsd'
       - 'rustup'
       - 'skopeo'
       - 'starship'
