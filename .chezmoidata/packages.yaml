@@ -50,6 +50,7 @@ packages:
       - 'kubeseal'
       - 'lazygit'
       - 'maven'
+      - 'mise'
       - 'mtr'
       - 'navi'
       - 'nmap'
