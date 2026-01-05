@@ -50,6 +50,7 @@ packages:
       - 'kubeseal'
       - 'lazygit'
       - 'maven'
+      - 'max-sixty/worktrunk/wt'
       - 'mise'
       - 'mtr'
       - 'navi'
