@@ -34,6 +34,7 @@ packages:
       - 'grep'
       - 'gron'
       - 'hashicorp/tap/vault'
+      - 'helm@3'
       - 'helmfile'
       - 'hyperfine'
       - 'htop'
