@@ -6,7 +6,7 @@ description: Fetch PR inline review comments and create a resolution plan
 ## Context
 
 - Current branch: !`git branch --show-current`
-- GitHub Enterprise hostname: github.mpi-internal.com
+- GitHub hostname: !`gh repo view --json url --jq '.url' | sed -E 's|https?://([^/]+)/.*|\1|'`
 - PR number: !`gh pr view --json number --jq '.number' 2>/dev/null || echo "No PR found"`
 - Repository: !`gh repo view --json owner,name --jq '"\(.owner.login)/\(.name)"'`
 
@@ -19,7 +19,7 @@ Fetch and act on inline review comments from the current PR.
 Use the GraphQL API to fetch review threads:
 
 ```bash
-gh api graphql --hostname github.mpi-internal.com -f query='
+gh api graphql $([ "<hostname>" != "github.com" ] && echo "--hostname <hostname>") -f query='
 {
   repository(owner: "<owner>", name: "<repo>") {
     pullRequest(number: <pr_number>) {
