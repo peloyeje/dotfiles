@@ -1,5 +1,10 @@
 packages:
   darwin:
+    taps:
+      - 'databricks/tap'
+      - 'hashicorp/tap'
+      - 'koekeishiya/formulae'
+      - 'max-sixty/worktrunk'
     brews:
       - 'ack'
       - 'act'
@@ -16,6 +21,7 @@ packages:
       - 'docker'
       - 'docker-buildx'
       - 'docker-compose'
+      - 'databricks/tap/databricks'
       - 'duckdb'
       - 'eza'
       - 'fd'
