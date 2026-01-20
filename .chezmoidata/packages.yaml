@@ -9,6 +9,7 @@ packages:
       - 'bash-completion'
       - 'chezmoi'
       - 'colima'
+      - 'consul'
       - 'coreutils'
       - 'diffutils'
       - 'direnv'
