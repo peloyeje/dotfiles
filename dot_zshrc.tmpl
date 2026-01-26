@@ -32,7 +32,7 @@ plug "zap-zsh/sudo"
 # Enable vi bindings + ability to edit current command in vim buffer
 bindkey -v
 autoload edit-command-line; zle -N edit-command-line
-bindkey -M vicmd v edit-command-lineindkey -v
+bindkey -M vicmd v edit-command-line
 
 # eza
 if ! (( $+commands[eza] )); then
