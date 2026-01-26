@@ -129,6 +129,11 @@ fi
 # worktrunk
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
+# wake
+if command -v wake >/dev/null 2>&1; then
+    eval "$(wake init zsh)"
+fi
+
 # Aliases
 alias cleanpy="sudo find ./ -type f -name '*.pyc' -delete -print && find ./ -type d -name "__pycache__" -delete -print"
 alias kctx="kubectx"
