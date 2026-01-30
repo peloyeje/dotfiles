@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "awsAuthRefresh": "aws sso login --profile {{ .claude_aws_profile }}",
+  "permissions": {
+    "allow": [
+      "Bash(gh pr edit --body:*)",
+      "Bash(gh pr view:*)",
+      "Bash(kubectl get:*)",
+      "Bash(kubectl config current-context)",
+      "Bash(kubectl config set-context:*)",
+      "Bash(helm list:*)",
+      "Bash(pre-commit run)",
+      "Bash(kubeclt describe)"
+    ],
+    "deny": [
+      "Bash(curl:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "code-simplifier@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true
+  }
+}
