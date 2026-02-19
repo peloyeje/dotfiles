@@ -38,6 +38,7 @@ packages:
       - 'gnu-tar'
       - 'gnutls'
       - 'go'
+      - 'go-task'
       - 'grep'
       - 'gron'
       - 'hashicorp/tap/vault'
