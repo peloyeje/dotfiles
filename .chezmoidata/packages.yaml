@@ -88,6 +88,7 @@ packages:
       - 'wakeonlan'
       - 'watch'
       - 'wget'
+      - 'xan'
     casks:
       - '1password'
       - '1password-cli'
