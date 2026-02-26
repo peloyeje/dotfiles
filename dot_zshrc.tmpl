@@ -136,6 +136,11 @@ if command -v wake >/dev/null 2>&1; then
     eval "$(wake init zsh)"
 fi
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
 # Aliases
 alias cleanpy="sudo find ./ -type f -name '*.pyc' -delete -print && find ./ -type d -name "__pycache__" -delete -print"
 alias kctx="kubectx"
