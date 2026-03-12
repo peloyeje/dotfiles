@@ -141,6 +141,12 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
+# databricks
+if command -v databricks >/dev/null 2>&1; then
+    source <(databricks completion zsh)
+    echo "databricks CLI loaded"
+fi
+
 # Aliases
 alias cleanpy="sudo find ./ -type f -name '*.pyc' -delete -print && find ./ -type d -name "__pycache__" -delete -print"
 alias kctx="kubectx"
