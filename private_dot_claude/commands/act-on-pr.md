@@ -8,7 +8,7 @@ description: Fetch PR inline review comments and create a resolution plan
 - Current branch: !`git branch --show-current`
 - GitHub hostname: !`gh repo view --json url --jq '.url' | sed -E 's|https?://([^/]+)/.*|\1|'`
 - PR number: !`gh pr view --json number --jq '.number' 2>/dev/null || echo "No PR found"`
-- Repository: !`gh repo view --json owner,name --jq '"\(.owner.login)/\(.name)"'`
+- Repository: !`gh repo view --json owner,name --jq '.owner.login + "/" + .name'`
 
 ## Instructions
 
