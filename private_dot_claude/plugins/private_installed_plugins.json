@@ -1,0 +1,125 @@
+{
+  "version": 2,
+  "plugins": {
+    "astral@astral-sh": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/astral-sh/astral/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-02-09T14:00:44.288Z",
+        "lastUpdated": "2026-02-09T14:00:44.288Z",
+        "gitCommitSha": "f8034678a15ad751aae6a2b684daebac416267a1"
+      }
+    ],
+    "feature-dev@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/claude-code-plugins/feature-dev/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-18T14:54:43.994Z",
+        "lastUpdated": "2026-03-18T14:54:43.994Z",
+        "gitCommitSha": "a3d9426e3e183d1fdc560fcc8a69e9d854f040c9"
+      }
+    ],
+    "context7-plugin@context7-marketplace": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/context7-marketplace/context7-plugin/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-20T09:21:11.752Z",
+        "lastUpdated": "2026-03-20T09:21:11.752Z",
+        "gitCommitSha": "383e127bd5ba8e7108812a393966cce972cbb0b4"
+      }
+    ],
+    "code-review@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/claude-code-plugins/code-review/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-31T10:04:09.817Z",
+        "lastUpdated": "2026-03-31T10:04:09.817Z",
+        "gitCommitSha": "2d5c1bab92971bbdaecdb1767481973215ee7f2d"
+      }
+    ],
+    "pr-review-toolkit@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/claude-code-plugins/pr-review-toolkit/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-31T10:04:32.084Z",
+        "lastUpdated": "2026-03-31T10:04:32.084Z",
+        "gitCommitSha": "2d5c1bab92971bbdaecdb1767481973215ee7f2d"
+      }
+    ],
+    "ralph-wiggum@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/claude-code-plugins/ralph-wiggum/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-31T10:04:50.519Z",
+        "lastUpdated": "2026-03-31T10:04:50.519Z",
+        "gitCommitSha": "2d5c1bab92971bbdaecdb1767481973215ee7f2d"
+      }
+    ],
+    "document-skills@anthropic-agent-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/anthropic-agent-skills/document-skills/98669c11ca63",
+        "version": "98669c11ca63",
+        "installedAt": "2026-04-02T08:43:20.106Z",
+        "lastUpdated": "2026-04-02T08:43:20.106Z",
+        "gitCommitSha": "98669c11ca63e9c81c11501e1437e5c47b556621"
+      }
+    ],
+    "example-skills@anthropic-agent-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/anthropic-agent-skills/example-skills/98669c11ca63",
+        "version": "98669c11ca63",
+        "installedAt": "2026-04-02T08:43:30.056Z",
+        "lastUpdated": "2026-04-02T08:43:30.056Z",
+        "gitCommitSha": "98669c11ca63e9c81c11501e1437e5c47b556621"
+      }
+    ],
+    "chrome-devtools-mcp@chrome-devtools-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/chrome-devtools-plugins/chrome-devtools-mcp/0.21.0",
+        "version": "0.21.0",
+        "installedAt": "2026-04-05T12:41:26.975Z",
+        "lastUpdated": "2026-04-05T12:41:26.975Z",
+        "gitCommitSha": "92368345dd62fce0a65a1081f80c23790edbf7d1"
+      }
+    ],
+    "caveman@caveman": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/caveman/caveman/d1bbf5b347c7",
+        "version": "d1bbf5b347c7",
+        "installedAt": "2026-04-06T09:30:09.220Z",
+        "lastUpdated": "2026-04-06T09:30:09.220Z",
+        "gitCommitSha": "d1bbf5b347c722f07c5b37062af0506cc4d8e97a"
+      }
+    ],
+    "superpowers@superpowers-marketplace": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7",
+        "version": "5.0.7",
+        "installedAt": "2026-04-06T09:34:12.364Z",
+        "lastUpdated": "2026-04-06T09:34:12.364Z",
+        "gitCommitSha": "b7a8f76985f1e93e75dd2f2a3b424dc731bd9d37"
+      }
+    ],
+    "claude-mem@thedotmack": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/thedotmack/claude-mem/11.0.1",
+        "version": "11.0.1",
+        "installedAt": "2026-04-06T09:35:20.184Z",
+        "lastUpdated": "2026-04-06T09:35:20.184Z",
+        "gitCommitSha": "9f01228a2bb99c9b66aba363c5c63f45e328d7e5"
+      }
+    ]
+  }
+}
