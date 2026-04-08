@@ -39,8 +39,10 @@ resolve_model_name() {
         --output json 2>/dev/null \
         | jq -r '.models[0].modelArn // .inferenceProfileArn // empty')
     if [ -z "$resolved" ]; then
-        # Fallback: use the raw ARN itself.
-        resolved="$arn"
+        # Fallback: use the raw ARN itself, but don't cache it
+        # so we retry next time.
+        printf '%s' "$arn"
+        return
     fi
     printf '%s' "$resolved" > "$cache_file"
     printf '%s' "$resolved"
@@ -56,7 +58,8 @@ else
 fi
 
 # Extract the bare model name from the resolved ARN or use as-is.
-model=$(echo "$model_resolved" | sed 's|.*model/||')
+# Handles foundation-model/, model/, inference-profile/, and other ARN path segments.
+model=$(echo "$model_resolved" | sed 's|.*/||')
 used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 
 printf '\033[1;34m%s\033[0m\033[0;33m%s\033[0m' \
