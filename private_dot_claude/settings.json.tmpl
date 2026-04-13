@@ -20,6 +20,11 @@
       "Bash(curl:*)"
     ]
   },
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "feature-dev@claude-code-plugins": true,
     "context7-plugin@context7-marketplace": true,
@@ -31,7 +36,8 @@
     "chrome-devtools-mcp@chrome-devtools-plugins": true,
     "caveman@caveman": true,
     "superpowers@superpowers-marketplace": true,
-    "claude-mem@thedotmack": true
+    "claude-mem@thedotmack": true,
+    "backstage@leboncoin-claude-code-plugins": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -63,12 +69,13 @@
         "source": "github",
         "repo": "thedotmack/claude-mem"
       }
+    },
+    "leboncoin-claude-code-plugins": {
+      "source": {
+        "source": "git",
+        "url": "git@github.mpi-internal.com:leboncoin/claude-code-plugins.git"
+      }
     }
   },
-  "autoUpdatesChannel": "stable",
-  "model": "sonnet",
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
-  }
+  "autoUpdatesChannel": "stable"
 }
