@@ -59,12 +59,20 @@ fi
 
 # Extract the bare model name from the resolved ARN or use as-is.
 # Handles foundation-model/, model/, inference-profile/, and other ARN path segments.
-model=$(echo "$model_resolved" | sed 's|.*/||')
+model_with_suffix=$(echo "$model_resolved" | sed 's|.*/||')
+model=$(echo "$model_with_suffix" | sed 's|\[.*\]$||')
+ctx_size=$(echo "$model_with_suffix" | sed -n 's|.*\[\(.*\)\]$|\1|p')
 used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 
 printf '\033[1;34m%s\033[0m\033[0;33m%s\033[0m' \
     "$dir" "$branch"
-[ -n "$model" ] && printf ' \033[0;36m[%s]\033[0m' "$model"
+if [ -n "$model" ]; then
+    if [ -n "$ctx_size" ]; then
+        printf ' \033[0;36m[%s %s]\033[0m' "$model" "$ctx_size"
+    else
+        printf ' \033[0;36m[%s]\033[0m' "$model"
+    fi
+fi
 if [ -n "$used" ]; then
     used_int=$(printf '%.0f' "$used")
     if [ "$used_int" -ge 80 ]; then
