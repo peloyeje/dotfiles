@@ -50,6 +50,7 @@ packages:
       - 'ipcalc'
       - 'iperf3'
       - 'jq'
+      - 'juju'
       - 'kubectx'
       - 'k9s'
       - 'koekeishiya/formulae/yabai'
