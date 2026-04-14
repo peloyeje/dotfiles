@@ -10,7 +10,10 @@ if git -C "$dir" rev-parse --git-dir >/dev/null 2>&1; then
     [ -n "$branch" ] && branch=" ($branch)"
 fi
 
-model_raw=$(echo "$input" | jq -r '.model.id // empty')
+model_raw_full=$(echo "$input" | jq -r '.model.id // empty')
+# Strip any context-window suffix (e.g. [1m]) from the raw ID before API calls
+model_raw=$(echo "$model_raw_full" | sed 's|\[[^]]*\]$||')
+ctx_size_from_id=$(echo "$model_raw_full" | sed -n 's|.*\[\([^]]*\)\]$|\1|p')
 
 # Resolve the human-readable model name.
 # When the ID is an AWS Bedrock ARN, the name/version substrings are not
@@ -59,9 +62,8 @@ fi
 
 # Extract the bare model name from the resolved ARN or use as-is.
 # Handles foundation-model/, model/, inference-profile/, and other ARN path segments.
-model_with_suffix=$(echo "$model_resolved" | sed 's|.*/||')
-model=$(echo "$model_with_suffix" | sed 's|\[.*\]$||')
-ctx_size=$(echo "$model_with_suffix" | sed -n 's|.*\[\(.*\)\]$|\1|p')
+model=$(echo "$model_resolved" | sed 's|.*/||')
+ctx_size="$ctx_size_from_id"
 used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 
 printf '\033[1;34m%s\033[0m\033[0;33m%s\033[0m' \
