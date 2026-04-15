@@ -58,8 +58,8 @@ Create a pull request for the current branch. Follow these steps:
    - Second change description
    ```
 
-   - If no PR exists for the current branch: `gh pr create --draft --title "<title>" --body "<body>"`
-   - If a PR already exists: `gh pr edit --title "<title>" --body "<body>"`
+   - If no PR exists for the current branch: use a HEREDOC to pass the body to `gh pr create --draft --title "<title>" --body`
+   - If a PR already exists: use a HEREDOC to pass the body to `gh pr edit --title "<title>" --body`
 
 8. **Return the PR URL** so the user can review it.
 
