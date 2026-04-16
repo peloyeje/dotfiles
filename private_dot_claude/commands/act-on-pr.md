@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(git:*), Bash(gh:*), Bash(sed:*), Read, Edit, Glob, Grep, Write, Task, TodoWrite
+allowed-tools: Bash(git:branch), Bash(gh:pr), Bash(gh:api), Bash(gh:repo), Read, Glob, Grep, TodoWrite
 description: Fetch PR inline review comments and create a resolution plan
 ---
 
