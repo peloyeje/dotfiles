@@ -120,6 +120,35 @@
         "lastUpdated": "2026-04-06T09:35:20.184Z",
         "gitCommitSha": "9f01228a2bb99c9b66aba363c5c63f45e328d7e5"
       }
+    ],
+    "backstage@leboncoin-claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/leboncoin-claude-code-plugins/backstage/1.0.1",
+        "version": "1.0.1",
+        "installedAt": "2026-04-10T12:27:33.599Z",
+        "lastUpdated": "2026-04-10T12:27:33.599Z",
+        "gitCommitSha": "f41948a5eaae29646f6bf9b8adca6355414fae13"
+      }
+    ],
+    "slack@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/claude-plugins-official/slack/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-17T11:20:07.139Z",
+        "lastUpdated": "2026-04-17T11:20:07.139Z",
+        "gitCommitSha": "7b9458950d38bb01ddb48b669f9fa89bcdfd98b8"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/claude-plugins-official/frontend-design/unknown",
+        "version": "unknown",
+        "installedAt": "2026-04-17T13:27:37.777Z",
+        "lastUpdated": "2026-04-17T13:27:37.777Z"
+      }
     ]
   }
 }
