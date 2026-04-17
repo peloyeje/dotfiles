@@ -1,18 +1,17 @@
 ---
-allowed-tools: Bash(git:branch), Bash(gh:pr), Bash(gh:api), Bash(gh:repo), Read, Glob, Grep, TodoWrite
+allowed-tools: Bash(git branch:*), Bash(gh pr view:*), Bash(gh pr list:*), Bash(gh api:*), Bash(gh repo view:*), Read, Glob, Grep, TodoWrite
 description: Fetch PR inline review comments and create a resolution plan
 ---
-
-## Context
-
-- Current branch: !`git branch --show-current`
-- GitHub hostname: !`gh repo view --json url --jq '.url' | sed -E 's|https?://([^/]+)/.*|\1|'`
-- PR number: !`gh pr view --json number --jq '.number' 2>/dev/null || echo "No PR found"`
-- Repository: !`gh repo view --json owner,name --jq '.owner.login + "/" + .name'`
 
 ## Instructions
 
 Fetch and act on inline review comments from the current PR.
+
+Start by running these commands **in parallel** (single message, multiple tool calls) to gather context:
+- `git branch --show-current`
+- `gh repo view --json url --jq '.url | ltrimstr("https://") | ltrimstr("http://") | split("/")[0]'`
+- `gh pr view --json number --jq '.number'`
+- `gh repo view --json owner,name --jq '.owner.login + "/" + .name'`
 
 ### 1. Fetch PR review threads
 
