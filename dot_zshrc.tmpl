@@ -35,24 +35,19 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # eza
-if ! (( $+commands[eza] )); then
-    echo "ERROR: 'eza' command not found"
-    return
+if (( $+commands[eza] )); then
+    alias ls='eza --group-directories-first -a'
+
+    # Use the --git flag if the installed version of eza supports git
+    # Related to https://github.com/ogham/exa/issues/978
+    if eza --version | grep -q '+git'; then
+        alias ll='ls -lh --git'
+    else
+        alias ll='ls -lh'
+    fi
+
+    alias tree='ll --tree --level=2'
 fi
-
-# Create alias override commands using 'eza'
-alias ls='eza --group-directories-first -a'
-
-# Use the --git flag if the installed version of eza supports git
-# Related to https://github.com/ogham/exa/issues/978
-if eza --version | grep -q '+git';
-then
-    alias ll='ls -lh --git'
-else
-    alias ll='ls -lh'
-fi
-
-alias tree='ll --tree --level=2'
 
 # Starship.rs (prompt)
 eval "$(starship init zsh)"
@@ -74,15 +69,15 @@ export UV_PYTHON_PREFERENCE=only-managed
 export INSTALLER_NO_MODIFY_PATH=1
 eval "$(uv generate-shell-completion zsh)"
 
-# nvm
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# nvm (managed by brew)
+export NVM_DIR="${XDG_CONFIG_HOME:-$HOME}/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 # direnv
 if command -v direnv >/dev/null 2>&1; then
     eval "$(direnv hook zsh)"
-    echo "direnv loaded"
+    [[ -n $ZSH_DEBUG ]] && echo "direnv loaded"
 fi
 
 # Terraform
@@ -93,24 +88,13 @@ export KUBECONFIG="${HOME}/.kube/config"
 
 if command -v kubectl >/dev/null 2>&1; then
     source <(kubectl completion zsh)
-    echo "kubectl loaded"
+    [[ -n $ZSH_DEBUG ]] && echo "kubectl loaded"
 fi
-
-# Android SDK
-export ANDROID_SDK_ROOT=/opt/android-sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-
-# Maven
-export M2_HOME="/opt/apache-maven-3.8.6"
-export M2=$M2_HOME/bin
-export MAVEN_OPTS="-Xms256m -Xmx512m"
-export PATH=$M2:$PATH
 
 # Github CLI
 if command -v gh >/dev/null 2>&1; then
     source <(gh completion -s zsh)
-    echo "gh loaded"
+    [[ -n $ZSH_DEBUG ]] && echo "gh loaded"
 fi
 
 # Rust
@@ -119,13 +103,10 @@ export PATH=$HOME/.cargo/bin:$PATH
 # Claude Code
 export PATH=$HOME/.claude/local:$PATH
 
-# tree-me
-source <(tree-me shellenv)
-
 # mise
 if command -v mise >/dev/null 2>&1; then
     eval "$(mise activate zsh)"
-    echo "mise loaded"
+    [[ -n $ZSH_DEBUG ]] && echo "mise loaded"
 fi
 
 # worktrunk
@@ -139,7 +120,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # databricks
 if command -v databricks >/dev/null 2>&1; then
     source <(databricks completion zsh)
-    echo "databricks CLI loaded"
+    [[ -n $ZSH_DEBUG ]] && echo "databricks CLI loaded"
 fi
 
 # Aliases
@@ -152,5 +133,5 @@ alias lg="lazygit"
 # Local conf (not committed)
 if [ -f "${HOME}/.zshrc.local" ]; then
     source "${HOME}/.zshrc.local"
-    echo "local .zshrc loaded"
+    [[ -n $ZSH_DEBUG ]] && echo "local .zshrc loaded"
 fi
