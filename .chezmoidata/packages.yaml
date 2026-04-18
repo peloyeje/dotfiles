@@ -77,7 +77,6 @@ packages:
       - 'starship'
       - 'steampipe'
       - 'stern'
-
       - 'tfenv'
       - 'tflint'
       - 'tldr'
@@ -92,10 +91,10 @@ packages:
     casks:
       - '1password'
       - '1password-cli'
-
       - 'betterdisplay'
       - 'bruno'
       - 'chatgpt'
+      - 'codex-app'
       - 'corretto@8'
       - 'corretto@11'
       - 'corretto@17'
