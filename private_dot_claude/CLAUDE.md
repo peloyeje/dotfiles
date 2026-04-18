@@ -66,3 +66,4 @@ Documentation:
 Tooling:
 - Use vault-cli -U $VAULT_ADDR -T ~/.vault-token to access vault secrets or perform operations
 - When working with Python, invoke the relevant /astral:<skill> for uv, ty, and ruff to ensure best practices are followed
+- For Python symbol lookups (definitions, references, types), use the LSP tool before falling back to Grep
