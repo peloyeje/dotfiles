@@ -64,7 +64,7 @@ packages:
       - 'mtr'
       - 'navi'
       - 'nmap'
-
+      - 'nvm'
       - 'ollama'
       - 'pandoc'
       - 'pgcli'
