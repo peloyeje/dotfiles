@@ -139,6 +139,16 @@
         "installedAt": "2026-04-17T13:27:37.777Z",
         "lastUpdated": "2026-04-17T13:27:37.777Z"
       }
+    ],
+    "astral@astral-sh": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/astral-sh/astral/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-04-18T10:12:43.768Z",
+        "lastUpdated": "2026-04-18T10:12:43.768Z",
+        "gitCommitSha": "f8034678a15ad751aae6a2b684daebac416267a1"
+      }
     ]
   }
 }
