@@ -39,6 +39,6 @@ yabai -m signal --add event=window_created app="IntelliJ IDEA" action='~/.config
 # send apps to specific displays and windows
 yabai -m rule --add app="Spotify" display=2
 yabai -m rule --add app="Slack" display=2
-yabai -m rule --add app="Wezterm" display=1 space=2
+yabai -m rule --add app="WezTerm" display=1 space=2
 yabai -m rule --add app="Google Chrome" display=1 space=1
 yabai -m rule --add app="Obsidian" display=1 space=6

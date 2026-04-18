@@ -55,7 +55,6 @@ packages:
       - 'k9s'
       - 'koekeishiya/formulae/yabai'
       - 'koekeishiya/formulae/skhd'
-      - 'kubectx'
       - 'kubernetes-cli'
       - 'kubeseal'
       - 'lazygit'
@@ -65,7 +64,7 @@ packages:
       - 'mtr'
       - 'navi'
       - 'nmap'
-      - 'nvm'
+
       - 'ollama'
       - 'pandoc'
       - 'pgcli'
@@ -78,7 +77,7 @@ packages:
       - 'starship'
       - 'steampipe'
       - 'stern'
-      - 'stow'
+
       - 'tfenv'
       - 'tflint'
       - 'tldr'
@@ -93,7 +92,7 @@ packages:
     casks:
       - '1password'
       - '1password-cli'
-      - 'android-platform-tools'
+
       - 'betterdisplay'
       - 'bruno'
       - 'chatgpt'

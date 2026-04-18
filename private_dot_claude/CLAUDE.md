@@ -45,6 +45,8 @@
 
 **ALWAYS**:
 
+Follow these practices consistently:
+
 Workflow:
 - Commit working code incrementally
 - Update plan documentation as you go

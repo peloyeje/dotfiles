@@ -1,16 +1,6 @@
 {
   "version": 2,
   "plugins": {
-    "astral@astral-sh": [
-      {
-        "scope": "user",
-        "installPath": "/Users/jean-eudes.peloye/.claude/plugins/cache/astral-sh/astral/0.1.0",
-        "version": "0.1.0",
-        "installedAt": "2026-02-09T14:00:44.288Z",
-        "lastUpdated": "2026-02-09T14:00:44.288Z",
-        "gitCommitSha": "f8034678a15ad751aae6a2b684daebac416267a1"
-      }
-    ],
     "feature-dev@claude-code-plugins": [
       {
         "scope": "user",
