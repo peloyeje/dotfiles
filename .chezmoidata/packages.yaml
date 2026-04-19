@@ -94,7 +94,7 @@ packages:
       - 'betterdisplay'
       - 'bruno'
       - 'chatgpt'
-      - 'codex-app'
+      - 'codex'
       - 'corretto@8'
       - 'corretto@11'
       - 'corretto@17'
