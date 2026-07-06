@@ -1,0 +1,23 @@
+{
+  "skill_name": "retime-commits",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I did all my commits on this branch last night around 2am. Can you spread them out so they look like I worked on them during business hours on Monday and Tuesday this week? Don't push, I'll do that myself.",
+      "expected_output": "Runs the plan step first showing a preview mapping each commit to a new weekday business-hours timestamp (within 09:00-12:00 or 14:00-19:00) on the requested Mon/Tue, preserving commit order. Applies only after showing the preview. Creates a backup branch. Does NOT push; reports the force-with-lease command instead.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "retime the last 3 commits on my current branch to random times between 9 and 5 on 2026-07-02, half hour lunch at noon is fine to ignore, just 9-17",
+      "expected_output": "Uses an explicit range of the last 3 commits (HEAD~3..HEAD) rather than the whole branch. Uses a custom single window 09:00-17:00 instead of the default split business hours. Places all 3 commits on 2026-07-02 in chronological order. Previews before applying, backs up, does not push.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "can you fix up the commit timestamps on this feature branch? they're all bunched into a 3 minute window and it looks bad. spread them across last week during normal working hours",
+      "expected_output": "Interprets 'last week' relative to today into a concrete Mon-Fri period, retimes commits since the branch diverged from main, uses default business-hour windows, skips weekends, preserves order, previews then applies with a backup, and does not push.",
+      "files": []
+    }
+  ]
+}
