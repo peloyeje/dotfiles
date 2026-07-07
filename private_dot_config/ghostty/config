@@ -1,0 +1,28 @@
+# WezTerm built-in default palette
+
+background = #000000
+foreground = #cccccc
+
+cursor-color = #cccccc
+selection-background = #303030
+selection-foreground = #ffffff
+
+# Normal (0-7) - pure half-brightness colors
+palette = 0=#000000
+palette = 1=#cc0000
+palette = 2=#00cc00
+palette = 3=#cccc00
+palette = 4=#0055cc
+palette = 5=#cc00cc
+palette = 6=#00cccc
+palette = 7=#cccccc
+
+# Bright (8-15) - pure full-brightness colors
+palette = 8=#555555
+palette = 9=#ff5555
+palette = 10=#55ff55
+palette = 11=#ffff55
+palette = 12=#5577ff
+palette = 13=#ff55ff
+palette = 14=#55ffff
+palette = 15=#ffffff
