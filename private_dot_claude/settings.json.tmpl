@@ -7,6 +7,10 @@
   },
   "permissions": {
     "allow": [
+      "Bash(rtk git *)",
+      "Bash(rtk ls*)",
+      "Bash(rtk grep*)",
+      "Bash(gh pr create:*)",
       "Bash(gh pr edit --body:*)",
       "Bash(gh pr view:*)",
       "Bash(kubectl get:*)",
@@ -18,7 +22,19 @@
     ],
     "deny": []
   },
-  "model": "sonnet",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -28,17 +44,16 @@
     "context7-plugin@context7-marketplace": true,
     "code-review@claude-code-plugins": true,
     "pr-review-toolkit@claude-code-plugins": true,
-    "ralph-wiggum@claude-code-plugins": true,
     "document-skills@anthropic-agent-skills": true,
     "example-skills@anthropic-agent-skills": true,
     "chrome-devtools-mcp@chrome-devtools-plugins": true,
     "caveman@caveman": true,
     "superpowers@superpowers-marketplace": true,
-    "claude-mem@thedotmack": true,
     "backstage@leboncoin-claude-code-plugins": true,
     "slack@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "astral@astral-sh": true
+    "astral@astral-sh": true,
+    "cicd@leboncoin-claude-code-plugins": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -65,12 +80,6 @@
         "repo": "obra/superpowers-marketplace"
       }
     },
-    "thedotmack": {
-      "source": {
-        "source": "github",
-        "repo": "thedotmack/claude-mem"
-      }
-    },
     "leboncoin-claude-code-plugins": {
       "source": {
         "source": "git",
@@ -84,5 +93,9 @@
       }
     }
   },
-  "autoUpdatesChannel": "stable"
+  "effortLevel": "xhigh",
+  "autoUpdatesChannel": "stable",
+  "editorMode": "vim",
+  "preferredNotifChannel": "terminal_bell",
+  "autoCompactEnabled": false
 }
