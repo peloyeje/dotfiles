@@ -89,6 +89,7 @@ packages:
       - 'watch'
       - 'wget'
       - 'xan'
+      - 'zk'
     casks:
       - '1password'
       - '1password-cli'
