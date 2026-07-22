@@ -3,7 +3,9 @@
   "awsAuthRefresh": "aws sso login --profile {{ .claude_aws_profile }}",
   "env": {
     "AWS_PROFILE": "{{ .claude_aws_profile }}",
-    "AWS_REGION": "{{ .claude_aws_region }}"
+    "AWS_REGION": "{{ .claude_aws_region }}",
+    "_comment_ENABLE_TOOL_SEARCH": "Force MCP tool-search deferral: only tool NAMES load at session start, full JSON schemas load on demand via ToolSearch. Keeps ~200 MCP tool schemas out of context until needed. Values: true=force defer, auto=defer only if schemas exceed 10% of context, false=load all upfront.",
+    "ENABLE_TOOL_SEARCH": "true"
   },
   "permissions": {
     "allow": [
@@ -22,6 +24,7 @@
     ],
     "deny": []
   },
+  "model": "sonnet[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -53,7 +56,10 @@
     "slack@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
     "astral@astral-sh": true,
-    "cicd@leboncoin-claude-code-plugins": true
+    "cicd@leboncoin-claude-code-plugins": true,
+    "ponytail@ponytail": true,
+    "gerrit@leboncoin-claude-code-plugins": true,
+    "source-code-management@leboncoin-claude-code-plugins": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -90,6 +96,12 @@
       "source": {
         "source": "github",
         "repo": "astral-sh/claude-code-plugins"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
       }
     }
   },
