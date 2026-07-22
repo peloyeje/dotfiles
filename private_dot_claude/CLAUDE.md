@@ -42,6 +42,7 @@
 - Use em dash (---). Use hyphens, commas, or parentheses instead
 - Capitalize all words in titles
 - Add marketing language to documentation
+- Use /deep-research
 
 **ALWAYS**:
 
@@ -60,8 +61,14 @@ Testing:
 - Use tmp_path fixture in pytest tests instead of tempfile package
 - Consolidate pytest tests for None/empty, single item, and multiple items behavior into one test using parametrize when shared setup is high; split only when factorizing leads to complex code
 
+Code style:
+- Prefer enums over Literal types and plain string constants
+- Type all function and method arguments
+- Prefer plain dataclasses over dicts and TypedDict; use pydantic dataclasses when validation is needed
+
 Documentation:
 - Adhere to the Diataxis framework
+- Docstrings must explain intent and non-obvious "why", never paraphrase the signature
 
 Tooling:
 - Use vault-cli -U $VAULT_ADDR -T ~/.vault-token to access vault secrets or perform operations
