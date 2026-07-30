@@ -66,6 +66,25 @@ model=$(echo "$model_resolved" | sed 's|.*/||')
 ctx_size="$ctx_size_from_id"
 used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 
+# Whole-session cache hit rate. Dedup by message id since streaming can
+# repeat the same usage totals across multiple transcript lines.
+transcript=$(echo "$input" | jq -r '.transcript_path // empty')
+cache_hitrate=""
+if [ -n "$transcript" ] && [ -f "$transcript" ]; then
+    cache_hitrate=$(jq -s '
+        [.[] | select(.type=="assistant") | .message | select(.usage)]
+        | unique_by(.id)
+        | map(.usage)
+        | (map(.cache_read_input_tokens // 0) | add) as $read
+        | (map(.cache_creation_input_tokens // 0) | add) as $creation
+        | (map(.input_tokens // 0) | add) as $input
+        | ($read + $creation + $input) as $total
+        | if $total > 0 then (100 * $read / $total | round) else empty end
+    ' "$transcript" 2>/dev/null)
+fi
+
+cost=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
+
 printf '\033[1;34m%s\033[0m\033[0;33m%s\033[0m' \
     "$dir" "$branch"
 if [ -n "$model" ]; then
@@ -85,5 +104,18 @@ if [ -n "$used" ]; then
         ctx_color='\033[0;32m'
     fi
     printf " ${ctx_color}[ctx: %s%%]\033[0m" "$used_int"
+fi
+if [ -n "$cache_hitrate" ]; then
+    if [ "$cache_hitrate" -ge 80 ]; then
+        cache_color='\033[0;32m'
+    elif [ "$cache_hitrate" -ge 50 ]; then
+        cache_color='\033[0;33m'
+    else
+        cache_color='\033[0;31m'
+    fi
+    printf " ${cache_color}[cache: %s%%]\033[0m" "$cache_hitrate"
+fi
+if [ -n "$cost" ]; then
+    printf ' \033[0;35m[$%.2f]\033[0m' "$cost"
 fi
 printf '\n'

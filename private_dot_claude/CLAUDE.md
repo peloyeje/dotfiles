@@ -19,16 +19,27 @@
 
 ## Commits
 
+Use conventional commit format: `<type>(<scope>): <subject>`
+
+Types: feat, fix, docs, style, refactor, perf, test, chore, ci
+
+Examples:
+- `feat(deploy): add image digest hashing for change detection`
+- `fix(workflow): remove --force-recreate flag`
+- `docs(readme): update deployment timing expectations`
+
 - **Every commit must**:
   - Compile successfully
   - Pass all existing tests
   - Include tests for new functionality
   - Follow project formatting/linting
+  - Use conventional commit message format
 
 - **Before committing**:
   - Run formatters/linters
   - Self-review changes
   - Ensure commit message explains "why"
+  - Do not create summary documents or markdown files to explain changes (use commit message instead)
 
 ## Important reminders
 
@@ -41,7 +52,7 @@
 - Add comments stating the obvious
 - Use em dash (---). Use hyphens, commas, or parentheses instead
 - Capitalize all words in titles
-- Add marketing language to documentation
+- Use marketing language in documentation or commit messages (e.g. "surgically", "purposefully", "strategically", "smartly")
 - Use /deep-research
 
 **ALWAYS**:
@@ -73,6 +84,6 @@ Documentation:
 Tooling:
 - Use vault-cli -U $VAULT_ADDR -T ~/.vault-token to access vault secrets or perform operations
 - When working with Python, invoke the relevant /astral:<skill> for uv, ty, and ruff to ensure best practices are followed
-- For Python symbol lookups (definitions, references, types), use the LSP tool before falling back to Grep
+- Python symbol lookups MUST use the LSP tool (ty), never grep. Load it first with ToolSearch "select:LSP". Map: grep "class X"/"def x" to goToDefinition or workspaceSymbol; grepping for callers to findReferences; checking a type to hover; "what is in this file" to documentSymbol. Use grep only for non-symbol text (log strings, YAML, config) or non-Python files
 
 @RTK.md
