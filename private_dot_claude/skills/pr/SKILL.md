@@ -1,7 +1,7 @@
 ---
 name: pr
 description: Use when creating a pull request from the current branch, including when on master/main with uncommitted changes or when updating an existing PR.
-argument-hint: [base-branch] ["rationale"]
+argument-hint: '[base-branch] ["rationale"]'
 allowed-tools: Bash(git:*), Bash(gh:*)
 ---
 

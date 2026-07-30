@@ -20,11 +20,12 @@
       "Bash(kubectl config set-context:*)",
       "Bash(helm list:*)",
       "Bash(pre-commit run)",
-      "Bash(kubectl describe:*)"
+      "Bash(kubectl describe:*)",
+      "mcp__workspace-mcp__modify_sheet_values"
     ],
     "deny": []
   },
-  "model": "sonnet[1m]",
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -33,6 +34,10 @@
           {
             "type": "command",
             "command": "rtk hook claude"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/prefer-lsp.py"
           }
         ]
       }
@@ -46,11 +51,8 @@
     "feature-dev@claude-code-plugins": true,
     "context7-plugin@context7-marketplace": true,
     "code-review@claude-code-plugins": true,
-    "pr-review-toolkit@claude-code-plugins": true,
-    "document-skills@anthropic-agent-skills": true,
     "example-skills@anthropic-agent-skills": true,
     "chrome-devtools-mcp@chrome-devtools-plugins": true,
-    "caveman@caveman": true,
     "superpowers@superpowers-marketplace": true,
     "backstage@leboncoin-claude-code-plugins": true,
     "slack@claude-plugins-official": true,
@@ -59,7 +61,8 @@
     "cicd@leboncoin-claude-code-plugins": true,
     "ponytail@ponytail": true,
     "gerrit@leboncoin-claude-code-plugins": true,
-    "source-code-management@leboncoin-claude-code-plugins": true
+    "source-code-management@leboncoin-claude-code-plugins": true,
+    "data-taskforce@leboncoin-claude-code-plugins": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -109,5 +112,12 @@
   "autoUpdatesChannel": "stable",
   "editorMode": "vim",
   "preferredNotifChannel": "terminal_bell",
-  "autoCompactEnabled": false
+  "autoCompactEnabled": false,
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Read-only queries (SELECT, DESCRIBE, SHOW, EXPLAIN) against prod Redshift, Databricks, or Athena via the repo's databricks-sql/redshift/athena skills, the databricks CLI, or psql/aws CLI equivalents",
+      "Fetching or printing prod database/warehouse credentials (e.g. `databricks auth env`, `aws redshift get-cluster-credentials`) strictly as a prerequisite step to run a read-only query in the same task"
+    ]
+  }
 }
