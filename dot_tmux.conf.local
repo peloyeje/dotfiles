@@ -329,6 +329,12 @@ tmux_conf_copy_to_os_clipboard=true
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
+# use CSI u encoding for extended keys (Pi and other TUIs prefer this over xterm)
+# also force extended-keys on: the framework's conditional in .tmux.conf doesn't
+# recognize WezTerm, so it would otherwise resolve to off
+set -g extended-keys on
+set -g extended-keys-format csi-u
+
 # increase history size
 #set -g history-limit 10000
 
