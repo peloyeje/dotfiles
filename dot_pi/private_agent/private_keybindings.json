@@ -1,0 +1,9 @@
+{
+  "app.tree.foldOrUp": [
+    "ctrl+left"
+  ],
+  "app.tree.unfoldOrDown": [
+    "ctrl+right"
+  ],
+  "app.clipboard.pasteImage": []
+}

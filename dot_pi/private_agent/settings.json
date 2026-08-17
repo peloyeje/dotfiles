@@ -1,0 +1,45 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "theme": "dark",
+  "steeringMode": "one-at-a-time",
+  "enableInstallTelemetry": false,
+  "defaultThinkingLevel": "xhigh",
+  "defaultProvider": "openrouter",
+  "defaultModel": "z-ai/glm-5.2",
+  "skills": [
+    "~/.claude/skills"
+  ],
+  "packages": [
+    {
+      "source": "npm:pi-web-access",
+      "skills": [
+        "!skills/librarian"
+      ]
+    },
+    "git:github.com/DietrichGebert/ponytail",
+    "npm:pi-mcp-adapter",
+    "npm:pi-rtk-optimizer",
+    "npm:pi-archimedes",
+    "npm:pi-vim"
+  ],
+  "compaction": {
+    "enabled": true
+  },
+  "doubleEscapeAction": "tree",
+  "outputPad": 1,
+  "editorPaddingX": 1,
+  "showCacheMissNotices": true,
+  "collapseChangelog": true,
+  "quietStartup": false,
+  "defaultProjectTrust": "ask",
+  "warnings": {
+    "anthropicExtraUsage": true
+  },
+  "enabledModels": [
+    "openrouter/deepseek/deepseek-v4-pro",
+    "openai-codex/gpt-5.6-terra",
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-luna",
+    "openrouter/z-ai/glm-5.2"
+  ]
+}
