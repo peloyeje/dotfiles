@@ -85,14 +85,17 @@ fi
 
 cost=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
 
+# ponytail: statusline JSON has no effort field; read the persisted default
+# from settings.json (session-only effort overrides won't be reflected).
+effort=$(jq -r '.effortLevel // empty' "$HOME/.claude/settings.json" 2>/dev/null)
+
 printf '\033[1;34m%s\033[0m\033[0;33m%s\033[0m' \
     "$dir" "$branch"
 if [ -n "$model" ]; then
-    if [ -n "$ctx_size" ]; then
-        printf ' \033[0;36m[%s %s]\033[0m' "$model" "$ctx_size"
-    else
-        printf ' \033[0;36m[%s]\033[0m' "$model"
-    fi
+    label="$model"
+    [ -n "$ctx_size" ] && label="$label $ctx_size"
+    [ -n "$effort" ] && label="$label - $effort"
+    printf ' \033[0;36m[%s]\033[0m' "$label"
 fi
 if [ -n "$used" ]; then
     used_int=$(printf '%.0f' "$used")
