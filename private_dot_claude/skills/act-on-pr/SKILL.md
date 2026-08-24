@@ -106,6 +106,9 @@ If a reviewer's suggestion looks incorrect, note it explicitly: "Warning: this s
 
 **c) Wait for the user's choice**
 
+Use the ask tool of the current harness to ask questions, if available. Fall
+back to text if not.
+
 Do not apply anything until the user replies. Accept:
 - `A`, `B`, `C` - apply that option as described
 - A modifier like "A but also rename x to y" - restate the interpretation in one sentence, then apply
