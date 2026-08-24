@@ -1,4 +1,8 @@
 font-size = 12
+macos-option-as-alt = left
+theme = Builtin Tango Dark
+window-padding-x = 16
+window-padding-y = 16
 
 # WezTerm built-in default palette
 background = #000000
