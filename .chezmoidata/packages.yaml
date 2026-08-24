@@ -5,6 +5,7 @@ packages:
       - 'hashicorp/tap'
       - 'koekeishiya/formulae'
       - 'max-sixty/worktrunk'
+      - 'peak/tap/s5cmd'
     brews:
       - 'ack'
       - 'act'
@@ -74,6 +75,7 @@ packages:
       - 'ripgrep'
       - 'rtk'
       - 'rustup'
+      - 's5cmd'
       - 'skopeo'
       - 'starship'
       - 'steampipe'
