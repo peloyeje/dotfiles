@@ -4,7 +4,6 @@
 
 - Incremental progress: small changes that compile and pass tests
 - Study existing code before implementing
-- Match content to the reader (ISO 24495-1 plain language): complete and findable for someone with adequate domain knowledge, nothing they'd have to hunt for
 - Pragmatic over dogmatic; boring and obvious over clever
 - Single responsibility per function/class; avoid premature abstractions
 - If you need to explain it, it's too complex
@@ -24,13 +23,10 @@ Before committing: run formatters/linters, self-review, write a message that exp
 ## Never
 
 - `--no-verify` to bypass hooks; disabling tests instead of fixing them; committing code that doesn't compile
+- Commit `HANDOFF.md`
 - Assumptions instead of verifying against existing code
 - "Co-Authored-By" in commits/descriptions
 - Unscoped `find /` (scans the whole disk) — scope to a directory
-- Restatement codas: a trailing sentence relabeling a fact as a verdict instead of adding information (e.g. "...removes 0 rows over 11 days. Adding it back would be dead code."). State the evidence and stop
-- "it is not X, it is Y" contrast structures — state the conclusion directly
-- Existential "there is/are" — make the real subject the grammatical subject ("the repo contains no X", not "there is no X")
-- Em dash (use hyphens/commas/parentheses); title-case titles; marketing language ("surgically", "strategically", "smartly")
 - `/deep-research`
 
 ## Always
@@ -48,6 +44,10 @@ Code style:
 - Plain dataclasses over dict/TypedDict; pydantic dataclasses when validation is needed
 
 Documentation: see `writing-docs` skill.
+
+Writing style (sentences, evidence, code comments): see `~/.claude/output-styles/plain-technical.md`.
+Enable it with `/config` -> Output style -> Plain technical, or `"outputStyle": "Plain technical"` in
+settings. It only applies while selected.
 
 Tooling:
 - `vault-cli -U $VAULT_ADDR -T ~/.vault-token` for vault secrets/operations
