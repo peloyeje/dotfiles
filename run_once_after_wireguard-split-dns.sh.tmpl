@@ -1,0 +1,40 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+
+# Re-run when the managed helper changes: {{ include "dot_local/bin/executable_wireguard-split-dns.sh" | sha256sum }}
+label=je.peloye.wireguard-split-dns
+managed_script={{ joinPath .chezmoi.homeDir ".local/bin/wireguard-split-dns.sh" | quote }}
+program=/usr/local/libexec/wireguard-split-dns.sh
+plist=/Library/LaunchDaemons/$label.plist
+plist_tmp=$(/usr/bin/mktemp)
+trap '/bin/rm -f "$plist_tmp"' EXIT HUP INT TERM
+
+/bin/cat > "$plist_tmp" <<PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>$label</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>$program</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StartInterval</key>
+    <integer>5</integer>
+</dict>
+</plist>
+PLIST
+
+/usr/bin/plutil -lint "$plist_tmp" >/dev/null
+/usr/bin/sudo /usr/bin/install -d -o root -g wheel -m 0755 /usr/local/libexec
+# Keep root launchd from executing the user-writable ~/.local/bin copy.
+/usr/bin/sudo /usr/bin/install -o root -g wheel -m 0755 "$managed_script" "$program"
+/usr/bin/sudo /usr/bin/install -o root -g wheel -m 0644 "$plist_tmp" "$plist"
+/usr/bin/sudo /bin/launchctl bootout "system/$label" 2>/dev/null || true
+/usr/bin/sudo /bin/launchctl bootstrap system "$plist"
+{{ end -}}
