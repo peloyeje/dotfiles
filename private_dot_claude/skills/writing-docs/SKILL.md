@@ -87,6 +87,15 @@ free. Cutting facts is not.
 - One risk per admonition (`!!! warning`, `!!! note`), one or two sentences of body.
 - A section earns its place only if it changes what the reader does.
 
+## Commit messages and PR descriptions
+
+- Write in an action-oriented voice: lead with what the change does to the system, then the reason it
+  was needed, then what it supersedes or breaks.
+- Describe the resulting state when it carries a design choice the reviewer should notice. Skip it when
+  it only restates the diff.
+- Keep the reader's next step in it: what to apply first, what to re-run, what fails differently now.
+- The subject line stays imperative and conventional, `<type>(<scope>): <subject>`.
+
 ## Comments and docstrings in code
 
 - Explain why, and explain the constraint. The code already says what.
