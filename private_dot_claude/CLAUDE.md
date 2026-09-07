@@ -43,11 +43,8 @@ Code style:
 - Type all function/method arguments
 - Plain dataclasses over dict/TypedDict; pydantic dataclasses when validation is needed
 
-Documentation: see `writing-docs` skill.
-
-Writing style (sentences, evidence, code comments): see `~/.claude/output-styles/plain-technical.md`.
-Enable it with `/config` -> Output style -> Plain technical, or `"outputStyle": "Plain technical"` in
-settings. It only applies while selected.
+Writing (docs, docstrings, code comments, commit messages, PR descriptions, reports, prose): see
+`writing-docs` skill. Load it before drafting.
 
 Tooling:
 - `vault-cli -U $VAULT_ADDR -T ~/.vault-token` for vault secrets/operations
