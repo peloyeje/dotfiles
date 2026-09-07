@@ -34,6 +34,7 @@ Before committing: run formatters/linters, self-review, write a message that exp
 - Commit working code incrementally; update plan docs as you go; learn from existing implementations
 - Stop after 3 failed attempts and reassess
 - When modifying code, update tests that cover it
+- Fix code to make tests pass rather than altering tests
 - Conventional format for commits and PR titles
 
 Testing: see `python-testing` skill.
