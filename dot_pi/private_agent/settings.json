@@ -1,11 +1,11 @@
 {
-  "lastChangelogVersion": "0.84.2",
+  "lastChangelogVersion": "0.85.1",
   "theme": "dark",
   "steeringMode": "one-at-a-time",
   "enableInstallTelemetry": false,
   "defaultThinkingLevel": "xhigh",
-  "defaultProvider": "openrouter",
-  "defaultModel": "z-ai/glm-5.2",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-sol",
   "skills": [
     "~/.claude/skills"
   ],
@@ -20,7 +20,8 @@
     "npm:pi-mcp-adapter",
     "npm:pi-rtk-optimizer",
     "npm:pi-archimedes",
-    "npm:pi-vim"
+    "npm:pi-vim",
+    "../../repos/jep-pi-extensions"
   ],
   "compaction": {
     "enabled": true
@@ -35,11 +36,18 @@
   "warnings": {
     "anthropicExtraUsage": true
   },
+  "archimedes.mcp": {
+    "enabled": false
+  },
   "enabledModels": [
     "openrouter/deepseek/deepseek-v4-pro",
     "openai-codex/gpt-5.6-terra",
     "openai-codex/gpt-5.6-sol",
     "openai-codex/gpt-5.6-luna",
-    "openrouter/z-ai/glm-5.2"
-  ]
+    "zai/glm-5.3",
+    "amazon-bedrock-aip/claude-opus-4-8[1m]",
+    "amazon-bedrock-aip/claude-opus-5[1m]",
+    "amazon-bedrock-aip/claude-sonnet-5[1m]"
+  ],
+  "hideThinkingBlock": false
 }
