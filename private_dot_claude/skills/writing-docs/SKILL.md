@@ -1,6 +1,6 @@
 ---
 name: writing-docs
-description: House writing style for every artifact a person reads: documentation, README, docstrings, code comments, commit messages, PR descriptions, reports, chat answers. Use before drafting or editing any prose or comment, not after.
+description: "House writing style for every artifact a person reads: documentation, README, docstrings, code comments, commit messages, PR descriptions, reports, chat answers. Uses plain language and ADHD-friendly structure. Use before drafting or editing any prose or comment, not after."
 ---
 
 # Writing
@@ -109,3 +109,135 @@ free. Cutting facts is not.
 - Treat a stale comment as a bug. When behaviour changes, the comment describing it changes in the
   same edit.
 - Link the issue or the ticket for anything external. One link beats a paragraph of retelling.
+
+## ADHD-friendly output
+
+Adapted from [i-have-adhd](https://github.com/ayghri/i-have-adhd/blob/main/skills/i-have-adhd/SKILL.md), licensed under MIT.
+
+Shape the output so a reader with ADHD can act on it. Brief output alone is not enough.
+
+### Why the structure matters
+
+1. Working memory is small. Keep required context on screen instead of asking the reader to remember it.
+2. Knowing the answer does not complete the task. Reduce the friction between understanding and action.
+3. Starting is the hardest step. Make the first action small, clear, and immediately possible.
+4. Vague time estimates feel alike. Use specific units.
+5. Visible progress provides motivation. Do not bury completed work.
+
+### Lead with the next action
+
+Put the first useful action on the first line. Do not start with context or a plan. If the answer is a
+command, path, or snippet, put it first. Add only the prose needed to use it.
+
+Bad: "Let's think about this. Your auth flow has a few moving pieces."
+
+Good: "Run `npm install jsonwebtoken`, then edit `src/auth.ts:42`."
+
+### Number multi-step tasks
+
+Use a numbered list when the work takes more than one step. Each step contains one bounded action. Do
+not put several actions into one step. Use the fewest steps that work, and fold trivial steps into the
+step before them.
+
+Bad: "Open the file, find the function, replace it, then run the tests."
+
+Good:
+
+```text
+1. Open `src/auth.ts`.
+2. Replace `verifyToken` on lines 42 to 58 with the snippet below.
+3. Run `npm test -- auth.spec.ts`.
+```
+
+### End with one next action
+
+If work remains, end with one action that the reader can complete in under two minutes.
+
+Bad: "Hope that helps. Let me know if you want to dig deeper."
+
+Good: "Next: run `npm test` and paste the first failing line."
+
+### Suppress tangents
+
+Finish the current issue before raising another. Offer a separate issue as one question after the first
+is complete. Answer questions that arise during the work when the available evidence supports an
+answer. Ask the reader only when their input is required.
+
+Bad: "Here is the fix. Your dependency is also stale, and your README is out of date."
+
+Good: "Here is the fix. Separately, one dependency is stale. Should I update it next?"
+
+### Restate state across turns
+
+The reader may not retain the previous step between messages. State the completed step and the next
+step. If the harness has a task or plan tool, use it for multi-step work with one item per step and one
+item in progress. The checklist carries the state, so do not repeat the full plan in prose.
+
+Bad: "Done. Ready for the next part?"
+
+Good: "Step 3 of 5 done: schema updated. Next: backfill the new column."
+
+### Use specific time estimates
+
+Use concrete units and state what changes the estimate.
+
+Bad: "This will take some work."
+
+Good: "About 15 minutes if tests already cover this. An afternoon if they do not."
+
+### Make completed work visible
+
+State what now works and give a concrete way to verify it.
+
+Bad: "I made some changes to the auth flow."
+
+Good: "Login now accepts magic links. Run `npm run dev`, then open `/login`."
+
+### Report errors directly
+
+State the failure, cause, and fix without emotional framing.
+
+Bad: "Oh no, the test is failing. There seems to be an issue."
+
+Good: "`auth.spec.ts:42` expected 200 and received 401. The request lacks an auth header. Add
+`Authorization: Bearer ${token}`."
+
+### Keep lists short
+
+Cap a list at five items. Split longer lists into ranked groups such as "Do now" and "Later", or
+"Must" and "Nice to have".
+
+### Remove preambles, recaps, and pleasantries
+
+Do not open with "Great question", "Let me", "I'll", "Sure", "Looking at your", or "To answer your
+question". Do not close with a recap, "Let me know if you need anything else", "Hope this helps",
+"Happy to clarify", or "Feel free to ask". Start with the answer and stop when it is complete.
+
+### Exceptions
+
+Override these defaults when:
+
+1. The reader asks for an explanation or walkthrough. Explain as fully as needed and add headings for
+   navigation, but keep the direct opening and ending.
+2. The next action is destructive, such as `rm -rf`, a force push, a schema migration, or dropping a
+   table. Confirm before acting.
+3. The last three attempts produced the same failure. Stop changing code, name the assumption that may
+   be wrong, and ask one diagnostic question.
+4. The request is materially ambiguous. Ask one short clarifying question instead of guessing.
+5. The rule would remove the requested answer. For options, give two to four ranked choices with a
+   one-line trade-off for each, and put the recommendation first.
+6. The agent harness requires another shape. Follow the harness, do the work instead of asking for
+   permission, and direct time estimates at the person who will execute the steps.
+
+### Pre-send check
+
+Delete:
+
+1. The first sentence if it only announces what follows.
+2. The last sentence if it asks whether the reader needs more help or repeats the result.
+3. Any unrelated sidebar.
+4. Any hedge that adds no information. Keep hedges that express real uncertainty.
+5. Any idiom or figurative phrase. Replace it with the literal action.
+
+Check the first and last lines. Together, they should show what happened and what the reader should do
+next.
