@@ -4,10 +4,14 @@
   "steeringMode": "one-at-a-time",
   "enableInstallTelemetry": false,
   "defaultThinkingLevel": "xhigh",
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-sol",
+  "defaultProvider": "amazon-bedrock-aip",
+  "defaultModel": "claude-opus-5-5[1m]",
   "skills": [
-    "~/.claude/skills"
+    "~/.claude/skills",
+    "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/source-code-management/skills",
+    "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/backstage/skills",
+    "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/datacli/skills",
+    "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/data-taskforce/skills"
   ],
   "packages": [
     {
@@ -21,7 +25,8 @@
     "npm:pi-rtk-optimizer",
     "npm:pi-archimedes",
     "npm:pi-vim",
-    "../../repos/jep-pi-extensions"
+    "../../repos/jep-pi-extensions",
+    "git:github.mpi-internal.com/leboncoin/claude-code-plugins"
   ],
   "compaction": {
     "enabled": true
@@ -40,14 +45,25 @@
     "enabled": false
   },
   "enabledModels": [
-    "openrouter/deepseek/deepseek-v4-pro",
-    "openai-codex/gpt-5.6-terra",
-    "openai-codex/gpt-5.6-sol",
-    "openai-codex/gpt-5.6-luna",
-    "zai/glm-5.3",
+    "amazon-bedrock-aip/claude-opus-5-5[1m]",
     "amazon-bedrock-aip/claude-opus-4-8[1m]",
-    "amazon-bedrock-aip/claude-opus-5[1m]",
-    "amazon-bedrock-aip/claude-sonnet-5[1m]"
+    "amazon-bedrock-aip/claude-sonnet-5[1m]",
+    "openai-codex/gpt-6-astra",
+    "openai-codex/gpt-6-sol",
+    "openai-codex/gpt-6-luna",
+    "zai/glm-5.3-flash",
+    "zai/glm-5.3"
   ],
-  "hideThinkingBlock": false
+  "hideThinkingBlock": false,
+  "cacheWarming": "idle",
+  "modelThinkingLevels": {
+    "zai/glm-5.3": "max",
+    "zai/glm-5.3-flash": "max",
+    "openai-codex/gpt-6-astra": "medium",
+    "openai-codex/gpt-6-sol": "high",
+    "openai-codex/gpt-6-luna": "high",
+    "amazon-bedrock-aip/claude-opus-5-5[1m]": "high",
+    "amazon-bedrock-aip/claude-sonnet-5[1m]": "xhigh",
+    "amazon-bedrock-aip/claude-opus-4-8[1m]": "xhigh"
+  }
 }
