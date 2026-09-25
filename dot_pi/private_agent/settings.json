@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.87.1",
   "theme": "dark",
   "steeringMode": "one-at-a-time",
   "enableInstallTelemetry": false,
@@ -64,5 +64,8 @@
     "amazon-bedrock-aip/claude-opus-5-5[1m]": "high",
     "amazon-bedrock-aip/claude-sonnet-5[1m]": "xhigh",
     "amazon-bedrock-aip/claude-opus-4-8[1m]": "xhigh"
-  }
+  },
+  "extensions": [
+    "-extensions/writing-docs-gate/index.ts"
+  ]
 }
