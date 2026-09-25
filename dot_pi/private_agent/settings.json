@@ -7,7 +7,6 @@
   "defaultProvider": "amazon-bedrock-aip",
   "defaultModel": "claude-opus-5-5[1m]",
   "skills": [
-    "~/.claude/skills",
     "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/source-code-management/skills",
     "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/backstage/skills",
     "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/datacli/skills",
