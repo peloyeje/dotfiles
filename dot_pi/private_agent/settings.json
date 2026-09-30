@@ -50,8 +50,7 @@
     "openai-codex/gpt-6-astra",
     "openai-codex/gpt-6-sol",
     "openai-codex/gpt-6-luna",
-    "zai/glm-5.3-flash",
-    "zai/glm-5.3"
+    "openrouter/openrouter/auto"
   ],
   "hideThinkingBlock": false,
   "cacheWarming": "idle",
