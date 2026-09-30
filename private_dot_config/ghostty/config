@@ -1,13 +1,20 @@
+# Font
 font-size = 12
+
+# Keyboard
 macos-option-as-alt = right
-theme = Builtin Tango Dark
+keybind = ctrl+shift+l=text:|
+
+# Window
 window-padding-x = 16
 window-padding-y = 16
+
+# Colors
+theme = Builtin Tango Dark
 
 # WezTerm built-in default palette
 background = #000000
 foreground = #cccccc
-
 cursor-color = #cccccc
 selection-background = #303030
 selection-foreground = #ffffff
