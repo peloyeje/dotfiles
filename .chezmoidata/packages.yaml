@@ -97,7 +97,6 @@ packages:
       - '1password-cli'
       - 'bruno'
       - 'chatgpt'
-      - 'codex'
       - 'corretto@8'
       - 'corretto@11'
       - 'corretto@17'
