@@ -5,7 +5,6 @@ packages:
       - 'hashicorp/tap'
       - 'koekeishiya/formulae'
       - 'max-sixty/worktrunk'
-      - 'peak/tap/s5cmd'
       - 'radiusmethod/awsd'
       - 'terraform-linters/tap'
     brews:
