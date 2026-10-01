@@ -32,6 +32,7 @@ packages:
       - 'fzf'
       - 'gawk'
       - 'gh'
+      - 'git'
       - 'git-absorb'
       - 'gnu-getopt'
       - 'gnu-indent'
