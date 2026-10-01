@@ -6,6 +6,8 @@ packages:
       - 'koekeishiya/formulae'
       - 'max-sixty/worktrunk'
       - 'peak/tap/s5cmd'
+      - 'radiusmethod/awsd'
+      - 'terraform-linters/tap'
     brews:
       - 'ack'
       - 'act'
@@ -81,8 +83,7 @@ packages:
       - 'steampipe'
       - 'stern'
       - 'tfenv'
-      - 'tflint'
-      - 'tldr'
+      - 'tlrc'
       - 'tmux'
       - 'tree'
       - 'uv'
@@ -93,6 +94,8 @@ packages:
       - 'xan'
       - 'zk'
     casks:
+      - 'awsd'
+      - 'tflint'
       - '1password'
       - '1password-cli'
       - 'bruno'

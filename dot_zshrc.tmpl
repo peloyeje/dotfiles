@@ -80,6 +80,10 @@ if command -v direnv >/dev/null 2>&1; then
     [[ -n $ZSH_DEBUG ]] && echo "direnv loaded"
 fi
 
+if command -v awsd >/dev/null 2>&1; then
+    eval "$(awsd init zsh)"
+fi
+
 # Terraform
 export PATH=$PATH:$HOME/.tfenv/bin
 
