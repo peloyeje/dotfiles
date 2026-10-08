@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+curl -fsSL https://pi.dev/install.sh | sh
