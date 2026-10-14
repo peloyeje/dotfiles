@@ -1,6 +1,8 @@
 {{- $full_name := promptStringOnce . "full_name" "Nom complet" -}}
 {{- $email := promptStringOnce . "email" "Email" -}}
 {{- $git_pubkey := promptStringOnce . "git_pubkey" "Git public SSH key" -}}
+{{- $lbc_email := promptStringOnce . "lbc_email" "Email for lbc.ghe.com repositories" -}}
+{{- $github_email := promptStringOnce . "github_email" "Email for github.com repositories" -}}
 {{- $claude_aws_profile := promptStringOnce . "claude_aws_profile" "AWS profile for Claude Code SSO" -}}
 {{- $claude_aws_region := promptStringOnce . "claude_aws_region" "AWS region for Claude Code" -}}
 
@@ -8,5 +10,7 @@
     full_name = {{ $full_name | quote }}
     email = {{ $email | quote }}
     git_pubkey = {{ $git_pubkey | quote }}
+    lbc_email = {{ $lbc_email | quote }}
+    github_email = {{ $github_email | quote }}
     claude_aws_profile = {{ $claude_aws_profile | quote }}
     claude_aws_region = {{ $claude_aws_region | quote }}
