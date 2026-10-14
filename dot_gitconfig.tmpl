@@ -61,3 +61,11 @@
     format = ssh
 [gpg "ssh"]
     program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+    path = ~/.gitconfig-github
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+    path = ~/.gitconfig-github
+[includeIf "hasconfig:remote.*.url:lbc@lbc.ghe.com:*/**"]
+    path = ~/.gitconfig-lbc
+[includeIf "hasconfig:remote.*.url:https://lbc.ghe.com/**"]
+    path = ~/.gitconfig-lbc
