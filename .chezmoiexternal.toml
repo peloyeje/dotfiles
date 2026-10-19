@@ -4,3 +4,11 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+
+[".agents/skills/doc-coauthoring"]
+    type = "archive"
+    url = "https://github.com/anthropics/skills/archive/main.tar.gz"
+    exact = true
+    stripComponents = 3
+    include = ["*/skills/doc-coauthoring/**"]
+    refreshPeriod = "168h"
