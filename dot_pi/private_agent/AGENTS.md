@@ -17,11 +17,7 @@
 
 ## Python style
 
-- Use uv, ruff and ty for Python tooling.
-- Enums over Literal types or string constants.
-- Type every function and method argument.
-- Plain dataclasses over dict/TypedDict, and pydantic dataclasses when validation is needed.
-- No leading-underscore module names. Declare the public surface with `__all__` after the imports (leave existing `_helper` modules alone unless asked).
+- For EVERY Python change, load `/Users/jean-eudes.peloye/.agents/skills/jep-python/SKILL.md` and follow it.
 
 ## Tests
 
@@ -38,6 +34,7 @@
 - Never use `--no-verify`, never add `Co-Authored-By`, never commit `HANDOFF.md`.
 - Commit spec, plan, or design docs (`docs/superpowers/specs/`, `docs/superpowers/plans/`) only with explicit approval.
 - PR descriptions contain a `## Summary`, plus ad-hoc sections when the rationale or a complex implementation needs explaining. Never add a test plan, a checklist, or a generated-by footer.
+- Always open a PR as a draft (`gh pr create --draft`) and a Gerrit change as work in progress (`git push <remote> HEAD:refs/for/master%wip`). The user marks it ready for review.
 
 ## Writing
 
@@ -53,5 +50,5 @@
 ## Services
 
 - Vault: `vault-cli -U $VAULT_ADDR -T ~/.vault-token`.
-- Gerrit (`review.leboncoin.ci`): query with `ssh review.leboncoin.ci gerrit query`, check that `.git/hooks/commit-msg` exists before committing, and rebase before `git push <remote> HEAD:refs/for/master` (Zuul `Merge Failed` with zero builds means the change needs a rebase).
+- Gerrit (`review.leboncoin.ci`): query with `ssh review.leboncoin.ci gerrit query`, check that `.git/hooks/commit-msg` exists before committing, and rebase before `git push <remote> HEAD:refs/for/master%wip` (Zuul `Merge Failed` with zero builds means the change needs a rebase).
 - workspace-mcp: set `user_google_email` to `jean-eudes.peloye@adevinta.com`, because the @leboncoin.fr address fails OAuth.

@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "1.3.0",
   "theme": "dark",
   "steeringMode": "one-at-a-time",
   "enableInstallTelemetry": false,
@@ -24,7 +24,7 @@
     "npm:pi-archimedes",
     "npm:pi-vim",
     "../../repos/jep-pi-extensions",
-    "git:github.mpi-internal.com/leboncoin/claude-code-plugins"
+    "git:git@github.mpi-internal.com:leboncoin/claude-code-plugins"
   ],
   "compaction": {
     "enabled": true
@@ -45,11 +45,14 @@
   "enabledModels": [
     "amazon-bedrock-aip/claude-opus-5-5[1m]",
     "amazon-bedrock-aip/claude-opus-4-8[1m]",
-    "amazon-bedrock-aip/claude-sonnet-5[1m]",
+    "amazon-bedrock-aip/claude-sonnet-5-5[1m]",
+    "amazon-bedrock-aip/claude-haiku-5-5[1m]",
     "openai-codex/gpt-6-astra",
-    "openai-codex/gpt-6-sol",
+    "openai-codex/gpt-6.1-sol",
     "openai-codex/gpt-6-luna",
-    "openrouter/openrouter/auto"
+    "openrouter/openrouter/auto",
+    "openrouter/z-ai/glm-5.3",
+    "openrouter/z-ai/glm-5.3-flash"
   ],
   "hideThinkingBlock": false,
   "cacheWarming": "idle",
@@ -65,5 +68,24 @@
   },
   "extensions": [
     "-extensions/writing-docs-gate/index.ts"
-  ]
+  ],
+  "archimedes.ui": {
+    "bashToolStyling": true,
+    "codemodeToolStyling": true,
+    "mutedTheme": false,
+    "autoCollapseThinking": false,
+    "thinkingStyle": "Compact",
+    "toolStyle": "Minimal",
+    "codeUnindent": true,
+    "labelText": "Thinking...",
+    "labelColor": "255,215,0",
+    "animationStyle": "vertical-up",
+    "editorSpinBorder": true,
+    "editorSpinSpeed": "normal",
+    "editorSpinLabel": "Working",
+    "editorSpinStyle": "pendulum"
+  },
+  "archimedes.meta": {
+    "onboarded": true
+  }
 }
