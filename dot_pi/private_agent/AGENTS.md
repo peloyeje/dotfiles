@@ -17,7 +17,7 @@
 
 ## Python style
 
-- For EVERY Python change, load `/Users/jean-eudes.peloye/.agents/skills/jep-python/SKILL.md` and follow it.
+- For EVERY Python change, load the `jep-python` skill and follow it.
 
 ## Tests
 
