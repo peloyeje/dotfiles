@@ -40,6 +40,14 @@
 
 - Load the `jep-writing` skill before drafting any prose: docs, docstrings, comments, commit messages, PR descriptions, reports.
 
+## Skills
+
+- Install every skill as a pi package in `~/.pi/agent/settings.json`. Edit its chezmoi source (`dot_pi/private_agent/private_settings.json`), run `chezmoi apply`, then `pi update --extensions`. Never copy a skill into `~/.agents/skills` or `~/.pi/agent/skills`, and never use `npx skills`.
+- For an upstream skill, add its repo as a `git:` package with a `skills` filter that lists only the folders in use, for example `"skills": ["skills/frontend-design"]`. If pi cannot load it (no `skills/` folder and no `pi` key in `package.json`), copy it into `jep-skills` with its licence.
+- Put the user's own skills in the local packages: Leboncoin-specific ones in `~/repos/jep-skills-lbc` (`lbc.ghe.com/jean-eudes-peloye/jep-skills`), all others in `~/repos/jep-skills` (`github.com/peloyeje/jep-skills`). Never put Leboncoin hosts, accounts or processes in `jep-skills`.
+- In a skill, point to a bundled file with a path relative to the skill directory, and to another skill by its name. Never hard-code an install path.
+- Leave tool-managed skills to their tool: `twg skills install` owns `twg*` in `~/.agents/skills`, and the Databricks CLI owns `databricks-*` in `~/.pi/agent/skills`.
+
 ## Shell and files
 
 - Single-file edits use `edit`/`write`. Bulk edits use `gsed` (macOS ships BSD sed) or `perl -i -pe`. Use Python only for programmatic transforms.
