@@ -12,3 +12,11 @@
     stripComponents = 3
     include = ["*/skills/doc-coauthoring/**"]
     refreshPeriod = "168h"
+
+[".agents/skills/frontend-design"]
+    type = "archive"
+    url = "https://github.com/anthropics/skills/archive/main.tar.gz"
+    exact = true
+    stripComponents = 3
+    include = ["*/skills/frontend-design/**"]
+    refreshPeriod = "168h"
