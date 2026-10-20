@@ -20,3 +20,34 @@
     stripComponents = 3
     include = ["*/skills/frontend-design/**"]
     refreshPeriod = "168h"
+
+[".agents/skills/airflow"]
+    type = "archive"
+    url = "https://github.com/astronomer/agents/archive/main.tar.gz"
+    exact = true
+    stripComponents = 3
+    include = ["*/skills/airflow/**"]
+    refreshPeriod = "168h"
+
+[".agents/skills/debugging-dags"]
+    type = "archive"
+    url = "https://github.com/astronomer/agents/archive/main.tar.gz"
+    exact = true
+    stripComponents = 3
+    include = ["*/skills/debugging-dags/**"]
+    refreshPeriod = "168h"
+
+[".agents/skills/humanizer"]
+    type = "archive"
+    url = "https://github.com/blader/humanizer/archive/main.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".agents/skills/okf-open-knowledge-format"]
+    type = "archive"
+    url = "https://github.com/fabricioctelles/skills/archive/main.tar.gz"
+    exact = true
+    stripComponents = 3
+    include = ["*/skills/okf-open-knowledge-format/**"]
+    refreshPeriod = "168h"
