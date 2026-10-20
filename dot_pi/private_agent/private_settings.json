@@ -24,6 +24,20 @@
     "npm:pi-archimedes",
     "npm:pi-vim",
     "../../repos/jep-pi-extensions",
+    "../../repos/jep-skills",
+    "../../repos/jep-skills-lbc",
+    {
+      "source": "git:github.com/anthropics/skills",
+      "skills": ["skills/doc-coauthoring", "skills/frontend-design"]
+    },
+    {
+      "source": "git:github.com/astronomer/agents",
+      "skills": ["skills/airflow", "skills/debugging-dags"]
+    },
+    {
+      "source": "git:github.com/fabricioctelles/skills",
+      "skills": ["skills/okf-open-knowledge-format"]
+    },
     "git:git@github.mpi-internal.com:leboncoin/claude-code-plugins"
   ],
   "compaction": {
