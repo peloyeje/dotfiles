@@ -5,6 +5,7 @@
 - Read the existing code and verify against it before implementing. Never assume.
 - Make small incremental changes that compile and pass tests, and commit each one.
 - Start each new project in its own worktree with `wt switch -c <branch>`.
+- At the start of a session, if `HANDOFF.md` exists at the worktree root, read it, then `TASKS.md` and `PLAN.md`, before anything else. At the end, the user runs the `handoff` skill to rewrite it.
 - Keep the project files at the worktree root, and update them as you go:
   - `SPEC.md`: the spec.
   - `PLAN.md`: the plan.
