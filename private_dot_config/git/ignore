@@ -1,0 +1,8 @@
+**/.claude/settings.local.json
+
+# Agent project files, kept at the worktree root and never committed.
+/SPEC.md
+/PLAN.md
+/TASKS.md
+/LOG.md
+/HANDOFF.md

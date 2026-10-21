@@ -4,7 +4,13 @@
 
 - Read the existing code and verify against it before implementing. Never assume.
 - Make small incremental changes that compile and pass tests, and commit each one.
-- Update plan docs as you go.
+- Start each new project in its own worktree with `wt switch -c <branch>`.
+- Keep the project files at the worktree root, and update them as you go:
+  - `SPEC.md`: the spec.
+  - `PLAN.md`: the plan.
+  - `TASKS.md`: the running task list.
+  - `LOG.md`: an append-only log of actions. Add entries at the end, and never edit or delete one.
+- Never commit `SPEC.md`, `PLAN.md`, `TASKS.md`, `LOG.md` or `HANDOFF.md`. The global Git ignore file excludes them.
 - Stop after 3 failed attempts and reassess.
 - End subagent tasks with a final summary (verdict, evidence, checks).
 
@@ -31,8 +37,7 @@
 - Use `chore:`, not `refactor:`, for commits that only rename or move files.
 - Before committing, run formatters and linters and self-review. The message explains why. It is the record, so write no summary docs.
 - Every commit compiles and passes the existing tests.
-- Never use `--no-verify`, never add `Co-Authored-By`, never commit `HANDOFF.md`.
-- Commit spec, plan, or design docs (`docs/superpowers/specs/`, `docs/superpowers/plans/`) only with explicit approval.
+- Never use `--no-verify`, never add `Co-Authored-By`.
 - PR descriptions contain a `## Summary`, plus ad-hoc sections when the rationale or a complex implementation needs explaining. Never add a test plan, a checklist, or a generated-by footer.
 - Always open a PR as a draft (`gh pr create --draft`) and a Gerrit change as work in progress (`git push <remote> HEAD:refs/for/master%wip`). The user marks it ready for review.
 
