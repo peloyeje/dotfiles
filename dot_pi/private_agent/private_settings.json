@@ -7,10 +7,10 @@
   "defaultProvider": "amazon-bedrock-aip",
   "defaultModel": "claude-opus-5-5[1m]",
   "skills": [
-    "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/source-code-management/skills",
-    "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/backstage/skills",
-    "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/datacli/skills",
-    "~/.pi/agent/git/github.mpi-internal.com/leboncoin/claude-code-plugins/plugins/experimental/data-taskforce/skills"
+    "~/.pi/agent/git/lbc.ghe.com/leboncoin/claude-code-plugins/plugins/experimental/source-code-management/skills",
+    "~/.pi/agent/git/lbc.ghe.com/leboncoin/claude-code-plugins/plugins/experimental/backstage/skills",
+    "~/.pi/agent/git/lbc.ghe.com/leboncoin/claude-code-plugins/plugins/experimental/datacli/skills",
+    "~/.pi/agent/git/lbc.ghe.com/leboncoin/claude-code-plugins/plugins/experimental/data-taskforce/skills"
   ],
   "packages": [
     {
@@ -38,7 +38,7 @@
       "source": "git:github.com/fabricioctelles/skills",
       "skills": ["skills/okf-open-knowledge-format"]
     },
-    "git:git@github.mpi-internal.com:leboncoin/claude-code-plugins"
+    "git:ssh://lbc@lbc.ghe.com/leboncoin/claude-code-plugins"
   ],
   "compaction": {
     "enabled": true
