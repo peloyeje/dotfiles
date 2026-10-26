@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+
+# The service runs ~/.wakeup after each wake.
+/opt/homebrew/bin/brew services start sleepwatcher
+{{ end -}}
