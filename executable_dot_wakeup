@@ -1,0 +1,35 @@
+#!/bin/sh
+# sleepwatcher runs this file after each wake.
+#
+# Restore the docked monitor layout. macOS discards its saved layout when the
+# HDMI-connected monitor comes back from sleep with a different mode list.
+set -eu
+
+PATH=/opt/homebrew/bin:/usr/bin:/bin
+exec >>"$HOME/Library/Logs/wakeup.log" 2>&1
+
+asus=42FDADF1-D8A1-49F8-A9D4-4BE37507A60B
+lg=EA73108B-EAA8-43A3-91AC-067E01B013DA
+want=$(printf 'Persistent screen id: %s\n' "$asus" "$lg" | sort)
+
+screens() {
+    displayplacer list | grep '^Persistent screen id:' | sort
+}
+
+# The monitors come back one by one. Give up when the screens are not the dock pair.
+tries=0
+until [ "$(screens)" = "$want" ]; do
+    tries=$((tries + 1))
+    if [ "$tries" -gt 30 ]; then
+        echo "$(date '+%F %T') screens are not the dock pair, layout left as is"
+        exit 0
+    fi
+    sleep 1
+done
+
+# macOS applies its fallback layout a few seconds after wake. Apply ours after it.
+sleep 3
+displayplacer \
+    "id:$asus res:2560x1440 hz:120 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0" \
+    "id:$lg res:1440x2560 hz:120 color_depth:8 enabled:true scaling:off origin:(-1440,-814) degree:90"
+echo "$(date '+%F %T') layout restored"
