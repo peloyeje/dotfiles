@@ -1,4 +1,8 @@
 {
-  "keywords": ["pi agent", "pi"],
-  "prompt": "Prompts dictés à pi agent, un agent de code en terminal. « pi agent » n'est pas Python."
+  "keywords": [
+    "pi agent",
+    "pi"
+  ],
+  "prompt": "Prompts dictés à pi agent, un agent de code en terminal. « pi agent » n'est pas Python.",
+  "tag": "dictated"
 }
