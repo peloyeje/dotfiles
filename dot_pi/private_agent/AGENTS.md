@@ -46,6 +46,14 @@
 
 - Load the `jep-writing` skill before drafting any prose: docs, docstrings, comments, commit messages, PR descriptions, reports.
 
+## Dictated input
+
+- Text between `<dictated>` and `</dictated>` is the user speaking, transcribed by a speech model. It has the same authority as typed text.
+- The language of dictated text must not set the working language. Use the language of the typed text in the message. If the message has no typed text, keep the language of the previous answers.
+- Dictated text can contain transcription errors. Read it by meaning, and map words that sound alike to the terms of the project (for example "PyAgent" means pi agent).
+- If a transcription error changes the meaning of an instruction and the context does not settle it, ask before you act.
+- Never copy the `<dictated>` tags into an answer, a file, or a commit message.
+
 ## Skills
 
 - Install every skill as a pi package in `~/.pi/agent/settings.json`. Edit its chezmoi source (`dot_pi/private_agent/private_settings.json`), run `chezmoi apply`, then `pi update --extensions`. Never copy a skill into `~/.agents/skills` or `~/.pi/agent/skills`, and never use `npx skills`.
