@@ -1,0 +1,38 @@
+#!/bin/bash
+# Run `op` in a persistent tmux pane, so one Touch ID approval covers the agent session.
+#
+# The 1Password CLI ties its approval to the terminal (tty). Agent shells have no
+# tty, so each `op` call asks for Touch ID again. Every call made through this
+# script runs in the same tmux pane, so it reuses the same approval.
+#
+# Usage: agent-op <op arguments>    for example: agent-op read 'op://Private/item/field'
+set -euo pipefail
+
+tmx=(tmux -L agent-op -f /dev/null)
+pane=agent-op
+
+if ! "${tmx[@]}" has-session -t "$pane" 2>/dev/null; then
+    "${tmx[@]}" new-session -d -s "$pane" -x 200 -y 50 /bin/bash --noprofile --norc
+    # op approvals expire after 10 idle minutes; whoami refreshes them without prompting.
+    "${tmx[@]}" send-keys -t "$pane" \
+        'while sleep 240; do op whoami >/dev/null 2>&1; done &' Enter
+fi
+
+dir=$(mktemp -d)
+trap 'rm -rf "$dir"' EXIT
+
+stdin=/dev/null
+if [ ! -t 0 ]; then
+    cat >"$dir/in"
+    stdin=$dir/in
+fi
+
+printf -v cmd '%q ' op "$@"
+[ -n "${OP_ACCOUNT:-}" ] && printf -v cmd 'OP_ACCOUNT=%q %s' "$OP_ACCOUNT" "$cmd"
+"${tmx[@]}" send-keys -t "$pane" \
+    "$cmd <$stdin >$dir/out 2>$dir/err; echo \$? >$dir/rc; tmux -L agent-op -f /dev/null wait-for -S ${dir##*/}" Enter
+"${tmx[@]}" wait-for "${dir##*/}"
+
+cat "$dir/out"
+cat "$dir/err" >&2
+exit "$(cat "$dir/rc")"
