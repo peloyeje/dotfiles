@@ -20,7 +20,6 @@
       ]
     },
     "git:github.com/DietrichGebert/ponytail",
-    "npm:pi-rtk-optimizer",
     "npm:pi-archimedes",
     "npm:pi-vim",
     "../../repos/jep-pi-extensions",
