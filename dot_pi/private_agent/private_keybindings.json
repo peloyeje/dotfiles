@@ -5,5 +5,6 @@
   "app.tree.unfoldOrDown": [
     "ctrl+right"
   ],
-  "app.clipboard.pasteImage": []
+  "app.clipboard.pasteImage": [],
+  "app.session.rename": []
 }
