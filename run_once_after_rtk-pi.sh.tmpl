@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+
+# Writes ~/.pi/agent/extensions/rtk.ts, the Pi extension that rtk ships.
+/opt/homebrew/bin/rtk init -g --agent pi
+{{ end -}}
