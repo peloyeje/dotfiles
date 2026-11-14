@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+# Rebuild after source or dependency changes: {{ include "tools/starship-databricks/main.go" | sha256sum }} {{ include "tools/starship-databricks/go.mod" | sha256sum }} {{ include "tools/starship-databricks/go.sum" | sha256sum }}
+source_dir={{ joinPath .chezmoi.sourceDir "tools/starship-databricks" | quote }}
+output={{ joinPath .chezmoi.destDir ".local/bin/starship-databricks" | quote }}
+mkdir -p "$(dirname "$output")"
+temporary=$(mktemp "$output.XXXXXX")
+trap 'rm -f "$temporary"' EXIT HUP INT TERM
+
+cd "$source_dir"
+go build -mod=readonly -trimpath -o "$temporary" .
+chmod 755 "$temporary"
+mv -f "$temporary" "$output"
