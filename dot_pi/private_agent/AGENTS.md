@@ -1,5 +1,10 @@
 # Guidelines
 
+## Local environment
+
+- At the start of every session, you must read `~/.pi/agent/AGENTS.local.md`. It holds the rules specific to this machine and work environment.
+- If a rule in it conflicts with this file, follow `AGENTS.local.md`.
+
 ## How to work
 
 - Read the existing code and verify against it before implementing. Never assume.
@@ -66,6 +71,3 @@
 - Scope `find` to a directory, never `find /`.
 - Bash loops of CLI API calls (for example `databricks api`): write JSON payloads to a file with `printf`, not inline `python3 -c`, and run a small batch in the foreground first.
 - Long batch jobs on a shared AWS profile: SSO tokens expire mid-run, so make each item resumable and record which items succeeded.
-
-## Services
-
