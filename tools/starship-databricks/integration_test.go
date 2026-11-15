@@ -134,17 +134,17 @@ func TestInstallationAndPrompt(t *testing.T) {
 		}
 		prompt := invoke(starship, []string{"prompt", "--path", home, "--terminal-width", "240"}, awsEnv...)
 		plain := ansi.ReplaceAllString(prompt, "")
-		if strings.Count(plain, "DBX trial @ workspace.example") != 1 || strings.Count(plain, "\n") != 1 {
+		if strings.Count(plain, "󰽙 trial @ workspace.example") != 1 || strings.Count(plain, "\n") != 1 {
 			t.Fatalf("unexpected prompt %q", plain)
 		}
 		module := invoke(starship, []string{"module", "custom.databricks"})
-		if !strings.Contains(module, "\x1b[1;31mDBX ") || !strings.Contains(plain, "aws-trial") || !strings.Contains(plain, "eu-west-1") || countdown.MatchString(plain) || strings.Contains(plain, "SECRET_SENTINEL") {
+		if !strings.Contains(module, "\x1b[1;31m󰽙 ") || !strings.Contains(plain, "aws-trial") || !strings.Contains(plain, "eu-west-1") || countdown.MatchString(plain) || strings.Contains(plain, "SECRET_SENTINEL") {
 			t.Fatalf("incorrect style, AWS context, or secret handling: %q", prompt)
 		}
-		if hidden := invoke(starship, []string{"prompt", "--path", home}, "DATABRICKS_HOST=https://invalid%zz"); strings.Contains(hidden, "DBX") {
+		if hidden := invoke(starship, []string{"prompt", "--path", home}, "DATABRICKS_HOST=https://invalid%zz"); strings.Contains(hidden, "󰽙") {
 			t.Fatalf("empty resolver output did not hide the prefix: %q", hidden)
 		}
-		if hidden := invoke(starship, []string{"prompt", "--path", home}, "PATH=/usr/bin:/bin"); strings.Contains(hidden, "DBX") {
+		if hidden := invoke(starship, []string{"prompt", "--path", home}, "PATH=/usr/bin:/bin"); strings.Contains(hidden, "󰽙") {
 			t.Fatalf("missing resolver did not hide the module: %q", hidden)
 		}
 	})
@@ -156,7 +156,7 @@ func TestInstallationAndPrompt(t *testing.T) {
 			t.Fatal(err)
 		}
 		output := invoke("zsh", []string{"-f", "-c", `setopt PROMPT_SUBST; PROMPT='$("$1" prompt --path "$HOME" --terminal-width 240)'; print -rP -- "$PROMPT"`, "test", starship}, "DATABRICKS_CONFIG_PROFILE="+profile, "STARSHIP_SHELL=zsh")
-		if !strings.Contains(ansi.ReplaceAllString(output, ""), "DBX "+profile+" @ workspace.example") {
+		if !strings.Contains(ansi.ReplaceAllString(output, ""), "󰽙 "+profile+" @ workspace.example") {
 			t.Fatalf("profile did not survive prompt expansion: %q", output)
 		}
 		if _, err := os.Stat(sentinel); !os.IsNotExist(err) {

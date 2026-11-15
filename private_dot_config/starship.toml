@@ -23,6 +23,6 @@ disabled = true
 command = 'starship-databricks'
 when = 'command -v starship-databricks >/dev/null 2>&1'
 shell = ['sh']
-symbol = 'DBX '
+symbol = '󰽙 '
 style = 'bold red'
 format = '([$symbol$output]($style) )'
