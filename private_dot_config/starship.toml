@@ -25,4 +25,4 @@ when = 'command -v starship-databricks >/dev/null 2>&1'
 shell = ['sh']
 symbol = '󰽙 '
 style = 'bold red'
-format = '([$symbol$output]($style) )'
+format = '(on [$symbol$output]($style) )'

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"net/url"
 	"strings"
@@ -12,11 +13,13 @@ import (
 )
 
 func main() {
+	showURL := flag.Bool("show-url", false, "Show the workspace URL after the profile.")
+	flag.Parse()
 	logger.DefaultLogger = &logger.SimpleLogger{Level: logger.LevelError + 1}
-	fmt.Print(contextText(&config.Config{}))
+	fmt.Print(contextText(&config.Config{}, *showURL))
 }
 
-func contextText(cfg *config.Config) string {
+func contextText(cfg *config.Config, showURL bool) string {
 	// Config resolution otherwise fetches host metadata before authentication.
 	cfg.HostMetadataResolver = func(context.Context, string) (*config.HostMetadata, error) {
 		return nil, nil
@@ -34,8 +37,11 @@ func contextText(cfg *config.Config) string {
 		host.User != nil || host.Path != "" || host.RawQuery != "" || host.ForceQuery || host.Fragment != "" {
 		return ""
 	}
-	if cfg.Profile == "" {
-		return host.Host
+	if !showURL {
+		return cfg.Profile
 	}
-	return cfg.Profile + " @ " + host.Host
+	if cfg.Profile == "" {
+		return "(" + cfg.Host + ")"
+	}
+	return cfg.Profile + " (" + cfg.Host + ")"
 }

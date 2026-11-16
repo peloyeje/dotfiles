@@ -111,8 +111,17 @@ func TestInstallationAndPrompt(t *testing.T) {
 	}
 
 	t.Run("installed resolver is quiet", func(t *testing.T) {
-		if got := invoke(binary, nil); got != "trial @ workspace.example" {
-			t.Fatalf("unexpected output %q", got)
+		for _, tc := range []struct {
+			args []string
+			want string
+		}{
+			{nil, "trial"},
+			{[]string{"--show-url"}, "trial (https://workspace.example)"},
+			{[]string{"--show-url=false"}, "trial"},
+		} {
+			if got := invoke(binary, tc.args); got != tc.want {
+				t.Fatalf("arguments %v produced %q, want %q", tc.args, got, tc.want)
+			}
 		}
 		for _, host := range []string{"https://SECRET_SENTINEL%zz", "https://workspace.example\nSECRET_SENTINEL"} {
 			if got := invoke(binary, nil, "DATABRICKS_HOST="+host); got != "" {
@@ -134,18 +143,35 @@ func TestInstallationAndPrompt(t *testing.T) {
 		}
 		prompt := invoke(starship, []string{"prompt", "--path", home, "--terminal-width", "240"}, awsEnv...)
 		plain := ansi.ReplaceAllString(prompt, "")
-		if strings.Count(plain, "󰽙 trial @ workspace.example") != 1 || strings.Count(plain, "\n") != 1 {
+		if strings.Count(plain, "on 󰽙 trial") != 1 || strings.Contains(plain, "workspace.example") || strings.Count(plain, "\n") != 1 {
 			t.Fatalf("unexpected prompt %q", plain)
 		}
 		module := invoke(starship, []string{"module", "custom.databricks"})
-		if !strings.Contains(module, "\x1b[1;31m󰽙 ") || !strings.Contains(plain, "aws-trial") || !strings.Contains(plain, "eu-west-1") || countdown.MatchString(plain) || strings.Contains(plain, "SECRET_SENTINEL") {
+		if !strings.HasPrefix(module, "on \x1b[1;31m󰽙 ") || !strings.Contains(plain, "aws-trial") || !strings.Contains(plain, "eu-west-1") || countdown.MatchString(plain) || strings.Contains(plain, "SECRET_SENTINEL") {
 			t.Fatalf("incorrect style, AWS context, or secret handling: %q", prompt)
 		}
-		if hidden := invoke(starship, []string{"prompt", "--path", home}, "DATABRICKS_HOST=https://invalid%zz"); strings.Contains(hidden, "󰽙") {
+		if hidden := invoke(starship, []string{"prompt", "--path", home}, "DATABRICKS_HOST=https://invalid%zz"); strings.Contains(hidden, "󰽙") || strings.Contains(hidden, "on ") {
 			t.Fatalf("empty resolver output did not hide the prefix: %q", hidden)
 		}
-		if hidden := invoke(starship, []string{"prompt", "--path", home}, "PATH=/usr/bin:/bin"); strings.Contains(hidden, "󰽙") {
+		if hidden := invoke(starship, []string{"prompt", "--path", home}, "PATH=/usr/bin:/bin"); strings.Contains(hidden, "󰽙") || strings.Contains(hidden, "on ") {
 			t.Fatalf("missing resolver did not hide the module: %q", hidden)
+		}
+	})
+
+	t.Run("optional URL in the full prompt", func(t *testing.T) {
+		configuration, err := os.ReadFile(filepath.Join(root, "private_dot_config/starship.toml"))
+		if err != nil {
+			t.Fatal(err)
+		}
+		enabled := strings.Replace(string(configuration), "command = 'starship-databricks'", "command = 'starship-databricks --show-url'", 1)
+		enabledPath := filepath.Join(home, "show-url.toml")
+		if err := os.WriteFile(enabledPath, []byte(enabled), 0600); err != nil {
+			t.Fatal(err)
+		}
+		prompt := invoke(starship, []string{"prompt", "--path", home}, "STARSHIP_CONFIG="+enabledPath)
+		plain := ansi.ReplaceAllString(prompt, "")
+		if strings.Count(plain, "on 󰽙 trial (https://workspace.example)") != 1 || strings.Count(plain, "\n") != 1 {
+			t.Fatalf("unexpected URL-enabled prompt %q", plain)
 		}
 	})
 
@@ -156,7 +182,7 @@ func TestInstallationAndPrompt(t *testing.T) {
 			t.Fatal(err)
 		}
 		output := invoke("zsh", []string{"-f", "-c", `setopt PROMPT_SUBST; PROMPT='$("$1" prompt --path "$HOME" --terminal-width 240)'; print -rP -- "$PROMPT"`, "test", starship}, "DATABRICKS_CONFIG_PROFILE="+profile, "STARSHIP_SHELL=zsh")
-		if !strings.Contains(ansi.ReplaceAllString(output, ""), "󰽙 "+profile+" @ workspace.example") {
+		if !strings.Contains(ansi.ReplaceAllString(output, ""), "on 󰽙 "+profile) {
 			t.Fatalf("profile did not survive prompt expansion: %q", output)
 		}
 		if _, err := os.Stat(sentinel); !os.IsNotExist(err) {
