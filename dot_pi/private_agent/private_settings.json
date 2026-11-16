@@ -22,6 +22,7 @@
     "git:github.com/DietrichGebert/ponytail",
     "npm:pi-archimedes",
     "npm:pi-vim",
+    "npm:context-mode",
     "../../repos/jep-pi-extensions",
     "../../repos/jep-skills",
     "../../repos/jep-skills-lbc",
