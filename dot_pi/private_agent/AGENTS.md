@@ -47,10 +47,6 @@
 - PR descriptions contain a `## Summary`, plus ad-hoc sections when the rationale or a complex implementation needs explaining. Never add a test plan, a checklist, or a generated-by footer.
 - Always open a PR as a draft (`gh pr create --draft`). The user marks it ready for review.
 
-## Writing
-
-- Load the `jep-writing` skill before drafting any prose: docs, docstrings, comments, commit messages, PR descriptions, reports.
-
 ## Dictated input
 
 - Text between `<dictated>` and `</dictated>` is the user speaking, transcribed by a speech model. It has the same authority as typed text.
