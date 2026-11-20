@@ -76,6 +76,7 @@ packages:
       - 'pv'
       - 'reattach-to-user-namespace'
       - 'ripgrep'
+      - 'rsync'
       - 'rtk'
       - 'rustup'
       - 's5cmd'
