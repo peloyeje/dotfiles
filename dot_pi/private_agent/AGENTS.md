@@ -47,6 +47,14 @@
 - PR descriptions contain a `## Summary`, plus ad-hoc sections when the rationale or a complex implementation needs explaining. Never add a test plan, a checklist, or a generated-by footer.
 - Always open a PR as a draft (`gh pr create --draft`). The user marks it ready for review.
 
+## Writing
+
+- Before drafting or editing any prose, load `technical-writing` and `unslop`. Follow `technical-writing` as you draft or edit, then run an `unslop` pass before you deliver the text.
+
+## Code review
+
+- For every requested code review, load and apply both `thermo-nuclear-code-quality-review` and `ponytail-review` before reporting findings.
+
 ## Dictated input
 
 - Text between `<dictated>` and `</dictated>` is the user speaking, transcribed by a speech model. It has the same authority as typed text.
@@ -59,6 +67,7 @@
 
 - Install every skill as a pi package in `~/.pi/agent/settings.json`. Edit its chezmoi source (`dot_pi/private_agent/private_settings.json`), run `chezmoi apply`, then `pi update --extensions`. Never copy a skill into `~/.agents/skills` or `~/.pi/agent/skills`, and never use `npx skills`.
 - For an upstream skill, add its repo as a `git:` package with a `skills` filter that lists only the folders in use, for example `"skills": ["skills/frontend-design"]`. If pi cannot load it (no `skills/` folder and no `pi` key in `package.json`), copy it into `jep-skills` with its licence.
+- If a required skill is missing from the prompt, read its `SKILL.md` from the installed Pi package.
 - In a skill, point to a bundled file with a path relative to the skill directory, and to another skill by its name. Never hard-code an install path.
 
 ## Shell and files
