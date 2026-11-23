@@ -18,6 +18,7 @@
   - `LOG.md`: an append-only log of actions. Add entries at the end, and never edit or delete one.
 - Never commit `SPEC.md`, `PLAN.md`, `TASKS.md`, `LOG.md` or `HANDOFF.md`. The global Git ignore file excludes them.
 - Stop after 3 failed attempts and reassess.
+- Before delegating any background task or starting any subagent, load and follow the `rex-delegation` skill.
 - End subagent tasks with a final summary (verdict, evidence, checks).
 
 ## Code design
