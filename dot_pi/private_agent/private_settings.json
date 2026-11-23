@@ -22,7 +22,6 @@
     "git:github.com/DietrichGebert/ponytail",
     "npm:pi-archimedes",
     "npm:pi-vim",
-    "npm:context-mode",
     "npm:@specode/pi-subscription-usage",
     "../../repos/jep-pi-extensions",
     {

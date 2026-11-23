@@ -75,12 +75,5 @@
 
 - Single-file edits use `edit`/`write`. Bulk edits use `gsed` (macOS ships BSD sed) or `perl -i -pe`. Use Python only for programmatic transforms.
 - Scope `find` to a directory, never `find /`.
-
-## Context Mode
-
-- If the output is small, use `read` or `bash` directly.
-- If the output can be large and an extract or a summary is enough, use Context Mode.
-- Use `ctx_search` only to find information that is not in the current context.
-- In `ctx_execute`, set `intent` only when you need it to select passages.
 - Bash loops of CLI API calls (for example `databricks api`): write JSON payloads to a file with `printf`, not inline `python3 -c`, and run a small batch in the foreground first.
 - Long batch jobs on a shared AWS profile: SSO tokens expire mid-run, so make each item resumable and record which items succeeded.
