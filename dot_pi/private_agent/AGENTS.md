@@ -55,7 +55,7 @@
 
 ## Code review
 
-- For every requested code review, load and apply both `thermo-nuclear-code-quality-review` and `ponytail-review` before reporting findings.
+- For every requested code review, load and apply these skills in order before reporting findings: `ponytail-review`, then `thermo-nuclear-code-quality-review`, then `unslop` on the report.
 
 ## Dictated input
 
