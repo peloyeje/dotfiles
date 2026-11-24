@@ -92,9 +92,6 @@
     "amazon-bedrock-aip/claude-sonnet-5[1m]": "xhigh",
     "amazon-bedrock-aip/claude-opus-4-8[1m]": "xhigh"
   },
-  "extensions": [
-    "-extensions/writing-docs-gate/index.ts"
-  ],
   "archimedes.ui": {
     "bashToolStyling": true,
     "codemodeToolStyling": true,
