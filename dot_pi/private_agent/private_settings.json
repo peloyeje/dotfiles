@@ -28,19 +28,7 @@
       "source": "../../repos/jep-skills",
       "skills": ["skills/**", "!skills/jep-writing/**"]
     },
-    {
-      "source": "git:github.com/backnotprop/pstack@4a4f41c46c67a006658ac17cef2d092593f6b26a",
-      "skills": [
-        "skills/technical-writing",
-        "skills/unslop",
-        "skills/how",
-        "skills/why",
-        "skills/teach",
-        "skills/principle-explain-the-number",
-        "skills/benchmark-checklist",
-        "skills/principle-subtract-before-you-add"
-      ]
-    },
+    "git:github.com/backnotprop/pstack@4a4f41c46c67a006658ac17cef2d092593f6b26a",
     "../../repos/jep-skills-lbc",
     {
       "source": "git:github.com/anthropics/skills",
