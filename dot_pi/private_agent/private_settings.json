@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.4.0",
+  "lastChangelogVersion": "1.5.2",
   "theme": "dark",
   "steeringMode": "one-at-a-time",
   "enableInstallTelemetry": false,
@@ -53,7 +53,10 @@
     "../../repos/jep-pi-extensions",
     {
       "source": "../../repos/jep-skills",
-      "skills": ["skills/**", "!skills/jep-writing/**"]
+      "skills": [
+        "skills/**",
+        "!skills/jep-writing/**"
+      ]
     },
     "git:github.com/backnotprop/pstack@4a4f41c46c67a006658ac17cef2d092593f6b26a",
     "../../repos/jep-skills-lbc",
@@ -100,14 +103,15 @@
     "amazon-bedrock-aip/claude-opus-4-8[1m]",
     "amazon-bedrock-aip/claude-sonnet-5-5[1m]",
     "amazon-bedrock-aip/claude-haiku-5-5[1m]",
-    "openai-codex/gpt-6-astra",
-    "openai-codex/gpt-6.1-sol",
+    "openai-codex/gpt-6.2-astra",
+    "openai-codex/gpt-6.2-sol",
     "openai-codex/gpt-6-luna",
     "openrouter/openrouter/auto",
     "openrouter/z-ai/glm-5.3",
-    "openrouter/z-ai/glm-5.3-flash"
+    "openrouter/z-ai/glm-5.3-flash",
+    "openrouter/deepseek/deepseek-v4.1-flash-1017"
   ],
-  "hideThinkingBlock": false,
+  "hideThinkingBlock": true,
   "cacheWarming": "idle",
   "modelThinkingLevels": {
     "zai/glm-5.3": "max",
@@ -137,5 +141,8 @@
   },
   "archimedes.meta": {
     "onboarded": true
+  },
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0"
   }
 }
