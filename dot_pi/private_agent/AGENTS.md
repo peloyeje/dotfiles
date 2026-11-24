@@ -8,6 +8,7 @@
 ## How to work
 
 - Read the existing code and verify against it before implementing. Never assume.
+- For any non-trivial development or writing task, load the `poteto-mode` skill before you start and follow it.
 - Make small incremental changes that compile and pass tests, and commit each one.
 - Start each new project in its own worktree with `wt switch -c <branch>`.
 - At the start of a session, if `HANDOFF.md` exists at the worktree root, read it, then `TASKS.md` and `PLAN.md`, before anything else. At the end, the user runs the `handoff` skill to rewrite it.
